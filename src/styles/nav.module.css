@@ -1,0 +1,13 @@
+.nav{  
+    padding: 0;
+    background-color: rgba(216, 24, 24, 0.863);
+    border-bottom:10px solid black ;  
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 2%;
+    
+}
+.img{
+    width: 100px;
+}
