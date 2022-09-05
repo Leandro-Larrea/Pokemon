@@ -7,9 +7,7 @@ import { Link } from "react-router-dom"
 export function Nav(props){
     return(
         <nav className={style.nav}>
-            <Search
-                onSearch={props.onSearch}
-            />
+            <Search/>
             <Link
             to="/">
             <img className={style.img} src={pokeball}/>

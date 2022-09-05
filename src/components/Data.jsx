@@ -1,23 +1,38 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getPokemonDetail } from "../redux/actions/index.js";
+import style from "../styles/data.module.css";
 
-export function Data({pokemon}){
+
+export function Data(props){
+    const dispatch = useDispatch();
+    const datos = useSelector((state) => state.pokeDetail)
+
+    useEffect(()=>{
+        dispatch(getPokemonDetail(props.match.params.id))
+    },[]);
+ 
     return(
-        <div>
-            <p>Order = {pokemon.name}</p>
-            {/* <p>Type: {pokemon.types.map(element => {
-                <p>{element.name}</p>
-            })}</p>
-            
-            <div>Abilities: {pokemon.abilities.map(element => {
-                return <p>{element.name}</p>
-            })}</div>
-            <div>Abilities: {pokemon.moves.map(element => {
-              return  <p>{element.move.name}</p>
-            })}</div> */}
-            <p>pendiente</p>
-            <p>pendiente</p>
-            <p>pendiente</p>
-            
+        <div className={style.container}> 
+            {console.log(datos)}
+            <h2 className={style.name}>{datos.name}</h2>
+            <h3 className={style.order}> order : {datos.order}</h3> 
+
+            {datos.abilities?.map((a,i)=>  <React.Fragment key={i}><p>{a.ability.name}</p></React.Fragment>)}  
+
+             <div className={style.imageContainer}> 
+               {
+              <img src={datos.sprites.other["official-artwork"].front_default} alt="asdasd"/>}     
+              </div>  
+
+             <div className={style.movesContainer}>
+             {datos.moves && datos.moves.map((a,i) => <p key={i}>{a.move.name}</p>)}
+               
+            </div>   
+           
         </div>
     )
 }
+
+

@@ -1,17 +1,22 @@
 import React from "react";
 import {Card} from "./Card.jsx";
+import { useEffect } from "react";
 import style from "../styles/cards.module.css"
+import { useSelector } from "react-redux/";
+
 export function Cards(props){
-    if(props.pokemons.length > 0){
-        console.log(props.cities)
-        
+
+    const pokemons = useSelector((state) => state.pokemons)
+
+    if(pokemons){
+        console.log(pokemons)
 return(<div className={style.cards}>
-     {props.pokemons.map((e)=>{
+     {pokemons.map((e)=>{
     return(
-        <Card
+        <Card key={e.id}
         name = {e.name}
-         abilitie = {e.abilities[0].ability.name}
-        img = {e.image}
+         ability = {e.abilities[0].ability.name}
+        img = {e.sprites.other["official-artwork"].front_default}
         id = {e.id}
         />
     )

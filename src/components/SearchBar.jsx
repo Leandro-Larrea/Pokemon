@@ -1,23 +1,40 @@
 import React from "react";
 import { useState } from "react";
 import style from "../styles/searchBar.module.css";
+import { getPokemon, getAll } from "../redux/actions/index.js";
+import { useDispatch, useSelector } from 'react-redux';
 
 export function Search(props){
+
+    const dispatch = useDispatch();
+    // const  pokemons = useSelector((state)=> state.pokemons)
+
     const [text, setText] = React.useState("");
     function handleText(e){
-        setText(e.target.value);   
+    setText(e.target.value);   
     }
-
-    function buscar(){
-        props.onSearch(text)
-        setText("")
+    console.log(props.match)
+ 
+    const sub = (e)=> {
+    e.preventDefault();
+    if(text.length === 0){return}
+    dispatch(getPokemon(text))
+    // console.log(pokemons)
+    setText("")
     }
 
     return(
-        <div className={style.container}>      
+        <form className={style.container} onSubmit={sub}>      
             <input className={style.input} type="text" onChange={handleText} value={text}></input>
-            <button className={style.button} onClick={buscar}>Buscar</button>
-                 
-        </div>    
+            <button className={style.button} type="submit">Buscar</button>      
+        </form>    
     )
 }
+
+// const mapDispatchToProps = (dispatch)=>{
+//     return {
+//         getAll: ()=> dispatch(getAll()),
+//         getPokemon: (name)=> dispatch(getPokemon(name))
+//     }
+// }
+
