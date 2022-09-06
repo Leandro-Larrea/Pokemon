@@ -9,9 +9,16 @@ export function Nav(props){
         <nav className={style.nav}>
             <Search/>
             <Link
+            to="/favorites"
+            >
+            <p className={style.options}>Favorites</p>
+            </Link>
+            <Link
             to="/">
             <img className={style.img} src={pokeball}/>
             </Link>
+            
+            
         </nav>
     )
 }

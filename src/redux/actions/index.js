@@ -20,6 +20,18 @@ export const CATCH_POKEMON = "CATCH_POKEMON";
      dispatch({type: GET_POKEMON, payload: eso})})
       
 }}
+
+export const getPokemonDetail = (id) =>{
+    return{
+        type: GET_POKEMON_DETAIL,
+        payload: id
+    }
+}
+
+export const buscador = (exp) => (dispatch) =>{
+    return
+}
+
  export const catchPokemon = (id) => {
  return {
     type: CATCH_POKEMON,
@@ -34,12 +46,7 @@ export const deletePokemon = (id) =>{
     }
 }
 
-export const getPokemonDetail = (id) =>{
-    return{
-        type: GET_POKEMON_DETAIL,
-        payload: id
-    }
-}
+
 
 
 

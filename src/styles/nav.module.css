@@ -5,9 +5,20 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 10px 2%;
+    align-items: center;
+    padding: 10px 2%;  
+}
+
+.options{
+    color: white;
+    font-size: 25px;
     
 }
+
 .img{
     width: 100px;
+    transition: 0.14s;
+}
+.img:hover{
+    transform: scale(1.1);
 }
