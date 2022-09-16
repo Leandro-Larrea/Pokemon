@@ -4,12 +4,12 @@ export const GET_POKEMON = "GET_POKEMON";
 export const DELETE_POKEMON = "DELETE_POKEMON";
 export const CATCH_POKEMON = "CATCH_POKEMON";
 
-// export const getAll = () => dispatch =>
-//  fetch("https://pokeapi.co/api/v2/pokemon/?limit=50")
-//  .then(answer => answer.json())
-//  .then(asd =>{
-//     dispatch({type: GET_ALL, payload: asd})
-//  }) 
+ export const getAll = () => dispatch =>
+  fetch("https://pokeapi.co/api/v2/pokemon/?limit=1249")
+  .then(answer => answer.json())
+  .then(asd =>{
+     dispatch({type: GET_ALL, payload: asd})
+  }) 
 
  export const getPokemon = (name) => {
      return (dispatch) =>{
@@ -17,8 +17,7 @@ export const CATCH_POKEMON = "CATCH_POKEMON";
  .then(answer => answer.json())
  .then(eso =>{
     console.log("eso llego")
-     dispatch({type: GET_POKEMON, payload: eso})})
-      
+     dispatch({type: GET_POKEMON, payload: eso})})   
 }}
 
 export const getPokemonDetail = (id) =>{
@@ -29,7 +28,7 @@ export const getPokemonDetail = (id) =>{
 }
 
 export const buscador = (exp) => (dispatch) =>{
-    return
+ 
 }
 
  export const catchPokemon = (id) => {
@@ -45,6 +44,8 @@ export const deletePokemon = (id) =>{
         payload: id
     }
 }
+/*terminar barra de busqueda*/
+
 
 
 
