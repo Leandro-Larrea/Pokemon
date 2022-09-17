@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export function Search(props){
 
     const dispatch = useDispatch();
-    // const  pokemons = useSelector((state)=> state.pokemons)
+    const  pokemons = useSelector((state)=> state.pokemons)
 
     const [text, setText] = React.useState("");
     function handleText(e){
@@ -18,8 +18,10 @@ export function Search(props){
     const sub = (e)=> {
     e.preventDefault();
     if(text.length === 0){return}
+    let r = pokemons.findIndex(p => p.name === text)
+    if(r !== -1){return}
     dispatch(getPokemon(text))
-    // console.log(pokemons)
+    console.log(pokemons)
     setText("")
     }
 

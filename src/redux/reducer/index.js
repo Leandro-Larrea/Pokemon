@@ -4,7 +4,8 @@ import { GET_ALL, GET_POKEMON, DELETE_POKEMON, CATCH_POKEMON, GET_POKEMON_DETAIL
 const initialState = {
     pokemons:[],
     pokeDetail: {},
-    pokeball:[]
+    pokeball:[],
+    pokeList:[]
 }
 
 export function rootReducer(state = initialState, action){
@@ -12,7 +13,7 @@ export function rootReducer(state = initialState, action){
         case  GET_ALL:
             return{
                 ...state,
-                pokemons: state.pokemons.concat(action.payload)
+                pokeList: action.payload
             }
         case  CATCH_POKEMON:
             return{
@@ -47,7 +48,6 @@ export function rootReducer(state = initialState, action){
          
             default: 
             return state
-
     }
 }
 

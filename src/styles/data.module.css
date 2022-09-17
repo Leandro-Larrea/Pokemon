@@ -4,9 +4,26 @@
     grid-template-columns: 1fr 9fr;
     width: 100%;
     padding: 0 5% 5% 5% ;
-
-
+    border: 3px solid white;
+    border-radius: 5px;
 }
+
+.statsContainer{
+ display: flex;
+ max-width: 70%;
+ grid-column: span 10;
+ justify-content: space-between;
+color: white;
+}
+
+.stats{
+    text-align: center;
+    padding: 8px;
+    font-size: 25px;
+    border: 1px solid white;
+    flex-basis: 100%;
+}
+
 .buttonContainer{
     grid-column: span 10;
 }
@@ -14,7 +31,7 @@
 .favorites{
     padding: 8px;
     font-size: 18px;
-    border: 5px solid rgba(216, 24, 24, 0.863);;
+    border: 5px solid rgba(216, 24, 24, 0.863);
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;

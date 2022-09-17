@@ -16,6 +16,8 @@ export function Data(props){
     },[]);
 
     const add = () =>{
+        let r = curiosidad.findIndex(p => p.name === datos.name)
+    if(r !== -1){return}
         dispatch(catchPokemon(id))
         console.log(curiosidad)
     }
@@ -27,29 +29,34 @@ export function Data(props){
             </div>
             <div className={style.datosContainer}>
                 {console.log(datos)}
-
-                    <h2 className={style.n}></h2>
-                    <h2 className={style.name}>{datos.name}</h2>
-                
+                <h2 className={style.n}></h2>
+                <h2 className={style.name}>{datos.name}</h2>   
                 <h3 className={style.order}> order : {datos.order}
                 </h3>
-                
-               
                 <div className={style.abilities}>
                     <h3>Abilities</h3>
                     {datos.abilities?.map((a,i)=>  <React.Fragment key= {i}><p>{a.ability.name}</p></React.Fragment>)} 
                 </div>
+                <div>
+                    {datos.types?.map(t => <div>{t.type.name}</div> )}
+                </div>
             </div> 
-
              <div className={style.imageContainer}> 
                {<img className={style.image} src={datos.sprites.other["official-artwork"].front_default} alt="asdasd"/>}     
-              </div>  
-
+              </div>
+              <div className={style.statsContainer}>
+            {datos.stats?.map((s) => {
+                   return <div className={style.stats}>
+                            <p>{s["base_stat"]}</p>
+                            <p>{s.stat.name}</p>              
+                        </div>
+                        }
+                    )}
+            </div> 
              <div className={style.movesContainer}>
-             {datos.moves && datos.moves.map((a,i) => <p key={i}>{a.move.name}</p>)}
-               
-            </div>   
-           
+             {datos.moves && datos.moves.map((a,i) => <p key={i}>{a.move.name}</p>)}      
+            </div>
+                  
         </main>
     )
 }

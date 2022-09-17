@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {Card} from "./Card.jsx";
+import style from "../styles/favorites.module.css"
+import styleCard from "../styles/favorites.module.css"
 
 export class Favorites extends Component{
  
     render(){
         return (
-            <div>
-                <h1>Favorites</h1>
+            <main className={style.main}>
                 {this.props.pokemons?.map(e =>
                     <Card key={e.id}
                     name = {e.name}
@@ -15,7 +16,7 @@ export class Favorites extends Component{
                     img = {e.sprites.other["official-artwork"].front_default}
                     id = {e.id}/>                                 
                 )}
-            </div>
+            </main>
         );         
     };
 };
