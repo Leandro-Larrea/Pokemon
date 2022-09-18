@@ -3,14 +3,13 @@
     background-color: rgba(216, 24, 24, 0.863);
     border-radius: 15px;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     box-shadow: 7px 7px 7px black;
     border-top-color: black;
     transition: 0.14s;
-    max-height: 361px;
-   
-    
+    height: 438px;   
 }
+
 
 .card:hover{
     transform: translateY(-50px);
@@ -19,20 +18,17 @@
 }
 
 .imgContainer{
-  
-    border-top-left-radius: 10px;
+    border-top-left-radius: 10px;   
     border-top-right-radius: 10px;
-   margin: 0;
-   padding: 0;
-   border: 0;
-   height: 240px;
-   border: 10px solid rgba(216, 24, 24, 0.863);
-   border-top: 15px solid black;
-   border-bottom: none;
-  
-   
-   
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 240px;
+    border: 10px solid rgba(216, 24, 24, 0.863);
+    border-top: 15px solid black;
+    border-bottom: none;  
 }
+
 .img{
     height: 100%;
     width: 100%;
@@ -48,10 +44,46 @@
     border-top-color:rgba(216, 24, 24, 0.863);
     border-bottom-color:rgba(216, 24, 24, 0.863);
     gap: 10px;
-    font-size: 22px;
+    font-size: 1 rem;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: rgba(233, 206, 206, 0.863);
     padding: 20px 10px;
     color: black;
+    font-family: 'Sarabun';
+    font-weight: 400;
+}
+.icosContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icoContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;   
+    align-items: center;
+    flex-basis: 40%;
+}
+
+.ico{
+    justify-self: center;
+    width: 30px;   
+}
+
+.name::first-letter{
+    text-transform: uppercase;   
+}
+.name{
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+.icoName{
+    flex-basis: 100%;
+    min-width: 60px;
+}
+
+.icoName::first-letter{
+    text-transform: uppercase; 
 }

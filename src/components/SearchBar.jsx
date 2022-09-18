@@ -17,9 +17,19 @@ export function Search(props){
  
     const sub = (e)=> {
     e.preventDefault();
+    const numb = /\d/;
     if(text.length === 0){return}
+    if(numb.test(text)){
+        let a = pokemons.find(p => p.id == text)
+        if(a){alert("that pokemon it's already in front of you!");
+        setText("")
+         return}
+    } else{
     let r = pokemons.findIndex(p => p.name === text)
-    if(r !== -1){return}
+    if(r !== -1){alert("that pokemon it's already in front of you!");
+    setText("")
+    return
+}}
     dispatch(getPokemon(text))
     console.log(pokemons)
     setText("")

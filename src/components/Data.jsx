@@ -17,7 +17,9 @@ export function Data(props){
 
     const add = () =>{
         let r = curiosidad.findIndex(p => p.name === datos.name)
-    if(r !== -1){return}
+    if(r !== -1){
+        window.alert("This pokemon it's already into favorites")
+        return}
         dispatch(catchPokemon(id))
         console.log(curiosidad)
     }
@@ -38,7 +40,10 @@ export function Data(props){
                     {datos.abilities?.map((a,i)=>  <React.Fragment key= {i}><p>{a.ability.name}</p></React.Fragment>)} 
                 </div>
                 <div>
-                    {datos.types?.map(t => <div>{t.type.name}</div> )}
+                    {datos.types?.map(p => <div>
+                 <div className={style.icoContainer}><img className={style.ico} src={require(`../images/type-icons/Pokémon_${p.type.name}_Type_Icon.svg.png`)}>
+                    </img><p className={style.icoName}>{p.type.name}</p></div>       
+                </div> )}
                 </div>
             </div> 
              <div className={style.imageContainer}> 
