@@ -28,7 +28,8 @@ export function Data(props){
         <main className={style.container}> 
 
             <div className={style.buttonContainer}>  
-            <h1 className={style.name}>{datos.name}</h1>    
+            <h1 className={style.name}>{datos.name}</h1> 
+             
                 <button onClick={add} className={style.favorites}>Add to favorites</button>   
             </div>
                 <div className={style.datosContainerContainer}>
@@ -49,9 +50,10 @@ export function Data(props){
                             </img><p className={style.icoName}>{p.type.name}</p></div>       
                         </div> )}
                         </div>
+                        <select className={style.selector}>{datos.moves && datos.moves.map((a,i) => <option key={i} className={style.option}>{a.move.name}</option>)} </select>
                     </div> 
                 </div>
-            <div className={style.imageContainer}> 
+            <div className={datos.types[0].type.name === "water"?style.imageContainerWater:style.imageContainer}>  
                {<img className={style.image} src={datos.sprites.other["official-artwork"].front_default} alt="asdasd"/>}     
               </div>
               <div className={style.statsContainer}>
@@ -64,11 +66,7 @@ export function Data(props){
                         </div>
                         }
                     )}
-            </div> 
-             <div className={style.movesContainer}>
-             {datos.moves && datos.moves.map((a,i) => <p key={i}>{a.move.name}</p>)}      
-            </div>
-                  
+            </div>                  
         </main>
     )
 }
