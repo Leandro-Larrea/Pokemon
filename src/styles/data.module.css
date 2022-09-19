@@ -1,80 +1,158 @@
 .container{
-    background-color: rgba(0, 0, 0, .6);
+    background-color:rgba(206, 43, 43, 0.932);
     display: grid;
     grid-template-columns: 1fr 9fr;
     width: 100%;
-    padding: 0 5% 5% 5% ;
-    border: 3px solid white;
     border-radius: 5px;
+  
 }
 
 .statsContainer{
- display: flex;
- max-width: 70%;
- grid-column: span 10;
- justify-content: space-between;
-color: white;
+    display: flex;
+    max-width: 100%;
+    grid-column: span 10;
+    justify-content: space-between; 
+    justify-content: left;
+    border-bottom: 5px solid black;
 }
 
 .stats{
     text-align: center;
     padding: 8px;
     font-size: 25px;
-    border: 1px solid white;
-    flex-basis: 100%;
+    flex-basis: 10%;
+    
+}
+
+.stats p{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
 }
 
 .buttonContainer{
+    padding: 20px;
     grid-column: span 10;
+    display: flex;
+    justify-content: space-between;   
 }
 
 .favorites{
     padding: 8px;
     font-size: 18px;
-    border: 5px solid rgba(216, 24, 24, 0.863);
+    border: 6px solid black;   
+    text-align: center;
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
+    box-shadow: 3px 9px 12px rgba(0,0,0, 0.8);
+    transition: 0.14s;
 }
 
 .favorites:hover{
-    box-shadow: 10px 0 10px rgba(0,0,0, 0.5);
-    transform: scale(1.1);
+    transform: scale(1.2);
+    background-color:  rgba(0, 140, 255, 1);
+    color: white;
+    box-shadow: 7px 14px 17px rgba(0,0,0, 0.8); 
 }
 
 .image{
     object-fit: cover;
-    width: 100%;
-}
+    max-width: 100%;
+    }
+
 .imageContainer{
-    justify-self: right;
-    max-width: 500px;
-    
-    
+    display: grid;
+    justify-content: center;
+    background-image: url("../images/background/grass-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 90%;
+    border: 10px solid black;
 }
+
 .movesContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column: span 10;
     color: white;
 }
+
+.datosContainerContainer{
+    padding: 10px; 
+}
+
 .datosContainer{
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-   color: white;
-   font-size: 25px;
-   max-width: 200px;
+    font-size: 25px;
+    padding: 1rem;
+    height: 100%;
+    background-color:white; 
+    border: 1px solid black;
+    border-radius: 5px;
 }
-.name{
-    justify-self: center;
+
+
+.name::first-letter{
+    text-transform: uppercase;
 }
+
 .abilities{
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 250px;
+    background-color: white;
+    
 }
+
 .abilities h3{
     grid-column: span 2;
     justify-self: center;
+    background-color: white;
+    width: 100%;
+}
+
+.icosContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+}
+
+.icoContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start; 
+    gap: 3px;  
+    align-items: center;
+    flex-basis: 40%;
+}
+
+.ico{
+    justify-self: center;
+    width: 40px;   
+}
+
+.name::first-letter{
+    text-transform: uppercase;   
+}
+.name{
+    font-weight: 500;
+    font-size: 2.3rem;
+    justify-self: center;
+    color: white;
+}
+
+.icoName{
+    flex-basis: 100%;
+    min-width:60px;
+}
+
+.icoName::first-letter{
+    text-transform: uppercase; 
 }

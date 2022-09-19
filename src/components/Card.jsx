@@ -15,7 +15,7 @@ export function Card(props){
                       <img className={style.img} src={props.img} alt="pikaimg"></img>
                   </div>
                   <div className={style.data}>
-                  <div className={style.name}> {props.name}</div>
+                  <div className={style.name}> {props.name} </div>
                   <div className={style.ability}>Ability: {props.ability}</div>
                   <div className={style.icosContainer}>
                     {props.types && props.types.map(p => 

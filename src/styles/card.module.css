@@ -1,13 +1,13 @@
 .card{
     width: 250px;
-    background-color: rgba(216, 24, 24, 0.863);
+    
     border-radius: 15px;
     text-align: center;
     font-size: 18px;
     box-shadow: 7px 7px 7px black;
-    border-top-color: black;
+
     transition: 0.14s;
-    height: 438px;   
+    height: 400px;   
 }
 
 
@@ -42,7 +42,7 @@
     padding: 15px;
     border: 10px solid black;
     border-top-color:rgba(216, 24, 24, 0.863);
-    border-bottom-color:rgba(216, 24, 24, 0.863);
+    border-bottom-color:black;
     gap: 10px;
     font-size: 1 rem;
     border-bottom-left-radius: 10px;
@@ -52,6 +52,7 @@
     color: black;
     font-family: 'Sarabun';
     font-weight: 400;
+   
 }
 .icosContainer{
     display: flex;
