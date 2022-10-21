@@ -1,11 +1,12 @@
-import { GET_ALL, GET_POKEMON, DELETE_POKEMON, CATCH_POKEMON, GET_POKEMON_DETAIL } from "../actions/index.js"
-
+import { GET_ALL, GET_POKEMON, DELETE_POKEMON, CATCH_POKEMON, GET_POKEMON_DETAIL, GET_MOVE, GET_TYPES } from "../actions/index.js"
 
 const initialState = {
     pokemons:[],
     pokeDetail: {},
     pokeball:[],
-    pokeList:[]
+    pokeList:[],
+    moveDetail:{},
+    types:[]
 }
 
 export function rootReducer(state = initialState, action){
@@ -15,6 +16,12 @@ export function rootReducer(state = initialState, action){
                 ...state,
                 pokeList: action.payload
             }
+        case GET_TYPES:
+            return{
+                ...state,
+                types: action.payload
+            }
+
         case  CATCH_POKEMON:
             return{
                 ...state,
@@ -45,6 +52,12 @@ export function rootReducer(state = initialState, action){
             ...state,
             pokeDetail: state.pokemons.filter(a => a.id == action.payload)[0]
            }
+        case GET_MOVE:
+            console.log(action.payload)
+            return{
+                ...state,
+                moveDetail: action.payload
+            }
          
             default: 
             return state

@@ -14,7 +14,8 @@ export class Favorites extends Component{
                     name = {e.name}
                      ability = {e.abilities[0].ability.name}
                     img = {e.sprites.other["official-artwork"].front_default}
-                    id = {e.id}/>                                 
+                    id = {e.id}
+                    types = {e.types}/>                                 
                 )}
             </main>
         );         

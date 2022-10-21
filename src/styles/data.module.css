@@ -4,7 +4,6 @@
     grid-template-columns: 1fr 9fr;
     width: 100%;
     border-radius: 5px;
-  
 }
 
 *{
@@ -24,8 +23,7 @@
     text-align: center;
     padding: 8px;
     font-size: 25px;
-    flex-basis: 10%;
-    
+    flex-basis: 10%;   
 }
 
 .stats p{
@@ -77,6 +75,7 @@
     width: 90%;
     border: 10px solid black;
     border-radius: 10px;
+    position: relative;
 }
 
 .imageContainerWater{
@@ -89,13 +88,7 @@
     width: 90%;
     border: 10px solid black;
     border-radius: 10px;
-}
-
-.movesContainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column: span 10;
-    color: white;
+    position: relative;
 }
 
 .datosContainerContainer{
@@ -113,19 +106,37 @@
     border: 1px solid black;
     border-radius: 5px;
 }
-select{
-    background-color: transparent;
-    justify-self: left;
+.form{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 10px;
 }
+select{ 
+    background-color: transparent;
+}
+
+.moveButton{
+    width: 80px;
+    border: 3px solid black;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.moveButton:hover{
+    transform: scale(1.2);
+    background-color:  rgba(0, 140, 255, 1);
+    color: white;
+    box-shadow: 7px 14px 17px rgba(0,0,0, 0.8); 
+
+}
+
 select option {
     margin: 40px;
     color: #fff;
     position: absolute;
     background-color: black;
 }
-
-
-
 
 .name::first-letter{
     text-transform: uppercase;
@@ -171,7 +182,7 @@ select option {
     text-transform: uppercase;   
 }
 .name{
-    font-size: 2rem;
+    font-size: 2.5rem;
     justify-self: center;
     color: rgb(240, 213, 63);
     letter-spacing: 3px;
@@ -179,10 +190,8 @@ select option {
     text-align: center;
     line-height: 30px;
     font-weight: 300;
-    border-bottom: 5px solid black;
     padding: 10px;
     text-align: center;
-    
 }
 
 .icoName{

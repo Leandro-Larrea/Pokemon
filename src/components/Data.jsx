@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getPokemonDetail, catchPokemon } from "../redux/actions/index.js";
 import style from "../styles/data.module.css";
-
+import {Moves} from "./Moves.jsx"
 
 
 export function Data(props){
@@ -11,8 +11,11 @@ export function Data(props){
     const datos = useSelector((state) => state.pokeDetail)
     const curiosidad = useSelector((state) => state.pokeball)
     const id = props.match.params.id
+
     useEffect(()=>{
+        console.log("useE")
         dispatch(getPokemonDetail(id))
+        
     },[]);
 
     const add = () =>{
@@ -23,23 +26,32 @@ export function Data(props){
         dispatch(catchPokemon(id))
         console.log(curiosidad)
     }
- 
+    
+    let skill = null
+    const sub = (e) =>{
+        e.preventDefault()
+         console.log(document.getElementById("select").value)
+         skill = document.getElementById("select").value
+         console.log(skill)
+    }
+ if(Object.values(datos).length){ 
+    console.log(datos)
     return(
         <main className={style.container}> 
 
             <div className={style.buttonContainer}>  
-            <h1 className={style.name}>{datos.name}</h1> 
+            <h1 className={style.name}>{datos.name}!!</h1> 
              
                 <button onClick={add} className={style.favorites}>Add to favorites</button>   
             </div>
-                <div className={style.datosContainerContainer}>
+                <section className={style.datosContainerContainer}>
                     <div className={style.datosContainer}>
                         {console.log(datos)}
 
                         <h3 className={style.order}> Order : {datos.order}</h3>
                         <h3 className={style.order}> Base experience : {datos["base_experience"]}</h3>
                         <h3 className={style.order}> Height : {datos["height"]}</h3>
-                        <h3 className={style.order}> Weight : {datos["weight"]}</h3>   
+                        <h3 className={style.order}> Weight : {datos["weight"]}</h3>           
                         <div className={style.abilities}>
                             <h3>Abilities</h3>
                             {datos.abilities?.map((a,i)=>  <React.Fragment key= {i}><p>{a.ability.name}</p></React.Fragment>)} 
@@ -50,11 +62,16 @@ export function Data(props){
                             </img><p className={style.icoName}>{p.type.name}</p></div>       
                         </div> )}
                         </div>
-                        <select className={style.selector}>{datos.moves && datos.moves.map((a,i) => <option key={i} className={style.option}>{a.move.name}</option>)} </select>
+                        <form className={style.form} onSubmit={sub}>
+                        <select className={style.selector} id = "select">{datos.moves && datos.moves.map((a,i) => <option key={i} className={style.option}>{a.move.name}</option>)} </select>
+                        <button type="submit" className={style.moveButton}>Search</button>
+                        </form>
+
                     </div> 
-                </div>
+                </section>
             <div className={datos.types[0].type.name === "water"?style.imageContainerWater:style.imageContainer}>  
-               {<img className={style.image} src={datos.sprites.other["official-artwork"].front_default} alt="asdasd"/>}     
+               {<img className={style.image} src={datos.sprites.other["official-artwork"].front_default} alt="asdasd"/>}
+              {skill && console.log(skill) && <Moves move={skill}/>}
               </div>
               <div className={style.statsContainer}>
             {datos.stats?.map((s) => {
@@ -68,7 +85,8 @@ export function Data(props){
                     )}
             </div>                  
         </main>
-    )
+    )}
+    return <div>asd</div>
 }
 
 

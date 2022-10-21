@@ -2,21 +2,29 @@ import React from "react";
 import {Card} from "./Card.jsx";
 import { useEffect } from "react";
 import style from "../styles/cards.module.css"
-import { useSelector } from "react-redux/";
+import { useDispatch, useSelector } from "react-redux/";
+import { getAll } from "../redux/actions/index.js";
+import pikachu from "../images/pikachu-running.gif"
 
 export function Cards(props){
 
-    const pokemons = useSelector((state) => state.pokemons)
+    const pokemons = useSelector((state) => state.pokeList)
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        console.log("useEfect")
+        dispatch(getAll())
+    },[])
 
-    if(pokemons){
-        console.log(pokemons)
+
+
+    if(pokemons.length){
+        console.log("aca ya tendriamos algo", pokemons)
 return(<div className={style.cards}>
      {pokemons.map((e)=>{
-    return(
-        <Card key={e.id}
+    return(<Card key={e.id}
         name = {e.name}
-         ability = {e.abilities[0].ability.name}
-        img = {e.sprites.other["official-artwork"].front_default}
+        ability = {e.ability}
+        img = {e.img}
         id = {e.id}
         types = {e.types}
         />
@@ -27,15 +35,7 @@ return(<div className={style.cards}>
 }
 else{
     return <div>
-        no hay nada chamigo
+        <img src={pikachu} alt="s" />
     </div>
 }
 }
-
-/* {props.cities.map((e)=>{
-        return(
-            <Card
-            name = {e.name}
-            />
-        )
-    })*/ 

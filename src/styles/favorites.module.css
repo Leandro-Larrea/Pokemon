@@ -13,3 +13,13 @@
     gap: 10px;
     justify-content: center;
 }
+
+.card{
+    width: 250px;   
+    border-radius: 15px;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 7px 7px 7px black;
+    transition: 0.14s;
+    height: 400px;   
+}

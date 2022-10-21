@@ -1,0 +1,7 @@
+.window{
+ background-color: black;
+ color: white; 
+ position: absolute;  
+ width: 300px;
+ height: 300px;
+}
