@@ -1,9 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getPokemonDetail, catchPokemon } from "../redux/actions/index.js";
+import { getPokemonDetail, catchPokemon, cleanUp } from "../redux/actions/index.js";
 import style from "../styles/data.module.css";
 import {Moves} from "./Moves.jsx"
+import pikachu from "../images/pikachu-running.gif"
 
 
 export function Data(props){
@@ -13,9 +14,8 @@ export function Data(props){
     const id = props.match.params.id
 
     useEffect(()=>{
-        console.log("useE")
         dispatch(getPokemonDetail(id))
-        
+        return ()=> dispatch(cleanUp("pokeDetail"))
     },[]);
 
     const add = () =>{
@@ -35,7 +35,7 @@ export function Data(props){
          console.log(skill)
     }
  if(Object.values(datos).length){ 
-    console.log(datos)
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     return(
         <main className={style.container}> 
 
@@ -86,7 +86,9 @@ export function Data(props){
             </div>                  
         </main>
     )}
-    return <div>asd</div>
+    return <div>
+    <img src={pikachu} alt="s" />
+</div>
 }
 
 

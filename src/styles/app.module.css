@@ -1,5 +1,8 @@
 .app{
-    background: linear-gradient(rgb(0, 72, 140), rgb(255, 254, 216));
-
-    min-height: 100vh;
+    background-image: url("../images/background/pokehd.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+    height: 100vh;
 }

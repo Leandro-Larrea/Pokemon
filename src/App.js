@@ -18,7 +18,7 @@ export default function App(){
     return(
         <div className={style.app}>
         <React.Fragment> 
-        <Nav/>    
+        <Route path="/" component={Nav}/>
         <Route exact path="/" component={Cards}/>
         <Route path = "/datitos/:id"  component ={Data}/>
         <Route path="/favorites" component={Favorites} />

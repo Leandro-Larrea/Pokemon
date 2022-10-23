@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux/";
 import { getAll } from "../redux/actions/index.js";
 import pikachu from "../images/pikachu-running.gif"
 
+
 export function Cards(props){
 
     const pokemons = useSelector((state) => state.pokeList)

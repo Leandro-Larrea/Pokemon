@@ -4,14 +4,21 @@ import style from "../styles/nav.module.css";
 import pokeball from "../images/pokeball.png";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getAll } from "../redux/actions/index.js";
+import { getAll, pokeNames } from "../redux/actions/index.js";
 import { useEffect } from "react";
 import { Filter } from "./Filter.jsx";
 import { useState } from "react";
 
+
+
 export function Nav(props){
  const dispatch = useDispatch();
- const names = useSelector((state) => state.pokeList)
+ const names = useSelector((state) => state.pokeNames)
+ 
+ useEffect(()=>{
+    if(!names.length){
+    dispatch(pokeNames())}
+ },[])
 
  const [c, setC] = useState(0)
 
@@ -33,10 +40,10 @@ export function Nav(props){
             <div className={style.position}>
                 <div onClick={fff} className={c=== 0?style.sortContainerFilter: style.sortContainerFilterOn}>
                     <div  className={style.sortText}>
-                        <a className={c === 1? style.aOn: style.aOff}>Origin Filter</a>
+                        <a className={c === 1? style.aOn: style.aOff}>Filter types</a>
                     </div>
                 </div>
-                <Filter c={c} match={props.match} origin={true}></Filter>
+                <Filter match={props.match} c={c} origin={true}></Filter>
             </div>   
         </div>
        

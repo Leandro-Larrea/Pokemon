@@ -1,10 +1,13 @@
-import { GET_ALL, GET_POKEMON, DELETE_POKEMON, CATCH_POKEMON, GET_POKEMON_DETAIL, GET_MOVE, GET_TYPES } from "../actions/index.js"
+import { GET_ALL, DELETE_POKEMON,GET_POKEMON, GET_POKEMON_DETAIL, GET_MOVE, GET_TYPES,
+FILTER_TYPES, CLEAN_UP, POKE_NAMES, FILTER_NAMES,} from "../actions/index.js"
 
 const initialState = {
     pokemons:[],
-    pokeDetail: {},
+    pokeDetail:{},
     pokeball:[],
     pokeList:[],
+    pokeNames:[],
+    pokeSearch:[],
     moveDetail:{},
     types:[]
 }
@@ -17,40 +20,52 @@ export function rootReducer(state = initialState, action){
                 pokeList: action.payload
             }
         case GET_TYPES:
+            console.log("reducer", action.payload)
             return{
                 ...state,
                 types: action.payload
             }
-
-        case  CATCH_POKEMON:
+        case FILTER_TYPES:
             return{
                 ...state,
-                pokeball: [...state.pokeball, state.pokemons.filter(a => a.id == action.payload)[0]]
+                pokeList: action.payload
+            }
+        case CLEAN_UP:
+            return{
+                ...state,
+                [action.payload]: []
             }
         case GET_POKEMON:
-            if(!state.pokemon){
-                return{
-                    ...state,
-                pokemons: [action.payload, ...state.pokemons],
-                pokeDetail: action.payload
-                }
-            }
-            else{
             return{
                 ...state,
-                pokemons: [action.payload, ...state.pokemons]
+                pokeList:[action.payload]
             }
-        }
+        case POKE_NAMES:
+            console.log(action.payload)
+            return{
+                ...state,
+                pokeNames: action.payload
+            }
+        case FILTER_NAMES:
+            
+            let names =  state.pokeNames.filter(e => e.startsWith(action.payload.toLowerCase()))
+            console.log(action.payload)
+            names.splice(10)
+            if(names[0] === action.payload || action.payload.length === 0) names = []
+            return{
+                ...state,
+                pokeSearch: names
+            }
         case  DELETE_POKEMON:
             return{
                 ...state,
                 pokemons: state.pokemons.filter(e => e.id !== action.payload)
             }
         case GET_POKEMON_DETAIL:
-            console.log(state.pokemons[0].id + action.payload)
+           console.log("redux detail", action.payload)
            return{
             ...state,
-            pokeDetail: state.pokemons.filter(a => a.id == action.payload)[0]
+            pokeDetail: action.payload
            }
         case GET_MOVE:
             console.log(action.payload)

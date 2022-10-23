@@ -7,6 +7,50 @@
     align-content: center;
 }
 
+.position{
+    position: relative;
+    width: 190px;
+    font-size: 1rem;
+    height: 36px;
+}
+
+.options{
+    position: absolute;
+    margin-top: 30px;
+    box-sizing: border-box;
+    color:black;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color:white;
+    right: 0px;
+    left: 5px;
+    border: none;
+    padding: 5px 0 0 0;
+    width: 95%;
+    display: grid;
+    z-index: 20;
+    border-bottom: 3px solid rgb(45, 106, 219);
+}
+
+.optionsOff{
+    display: none;
+}
+
+.options button{
+    border: none;
+    background-color: transparent;
+    color: black;
+    font-size: 1rem;
+    height: 20px;
+    cursor: pointer;
+
+}
+
+.options button:hover{
+    background:rgb(45, 106, 219);
+}
+
 .button{
     cursor: pointer;
     font-size: 19px;
@@ -30,6 +74,10 @@
     border-radius: 10px;
     border: 5px solid black;
     transition: 0.1s;
+    position: absolute;
+    z-index: 30;
+
+    
 }
 .input:focus{
     border-color: rgba(0, 140, 255, 1);
