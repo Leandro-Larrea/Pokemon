@@ -12,11 +12,8 @@ export function Cards(props){
     const pokemons = useSelector((state) => state.pokeList)
     const dispatch = useDispatch()
     useEffect(()=>{
-        console.log("useEfect")
-        dispatch(getAll())
+        if(!pokemons.length){dispatch(getAll())}
     },[])
-
-
 
     if(pokemons.length){
         console.log("aca ya tendriamos algo", pokemons)
@@ -36,7 +33,7 @@ return(<div className={style.cards}>
 }
 else{
     return <div>
-        <img src={pikachu} alt="s" />
+        <img className={style.pikachu} src={pikachu} alt="s" />
     </div>
 }
 }
