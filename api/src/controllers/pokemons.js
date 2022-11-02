@@ -16,7 +16,9 @@ const getCokemones = async()=> {
         ability: e.data.abilities.map(e => e.ability.name),
         img : e.data.sprites.other["official-artwork"].front_default,
         id : e.data.id,
-        types : e.data.types
+        types : e.data.types,
+        hp: e.data.stats[0].base_stat,
+        attack: e.data.stats[1].base_stat
             }
         }
     ))

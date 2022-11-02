@@ -60,6 +60,12 @@ await axios.get(`http://localhost:3001/pokemons/names`)
     dispatch({type:POKE_NAMES, payload: a.data})
 })
 
+export const filterOrigin = (type) => async dispatch =>
+await axios.get(`http://localhost:3001/pokemons/origin/${type}`)
+.then(a => {
+    dispatch({type: FILTER_TYPES, payload: a.data})
+})
+
  export const getPokemon = (name) => {
      return (dispatch) =>{
     return fetch(`http://localhost:3001/pokemons?name=${name}`)
@@ -70,9 +76,7 @@ await axios.get(`http://localhost:3001/pokemons/names`)
 
 export const filterNames = (str) => dispatch => dispatch({type: FILTER_NAMES, payload: str})
 
-export const buscador = (exp) => (dispatch) =>{
-    
-}
+
 
  export const catchPokemon = (id) => {
  return {
@@ -80,6 +84,13 @@ export const buscador = (exp) => (dispatch) =>{
     payload: id
     }
 }
+
+export const sortPokemons = (sort)=> dispatch =>
+fetch(`http://localhost:3001/pokemons/sort?type=${sort}`)
+.then(a => a.json())
+.then(b => {
+    dispatch({type:FILTER_TYPES, payload:b})
+})
 
 export const deletePokemon = (id) =>{
     return{
@@ -93,11 +104,11 @@ export const moveDetail = (move) => {
         fetch(`https://pokeapi.co/api/v2/move/${move}/`)
         .then(eso => eso.json())
         .then(detail =>{
-                        dispatch({type: GET_MOVE, payload: detail})     
+            dispatch({type: GET_MOVE, payload: detail})     
         })
     }
 }
-/*terminar barra de busqueda*/
+
 
 
 

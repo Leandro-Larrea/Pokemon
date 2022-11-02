@@ -10,7 +10,7 @@
 }
 
 .navHover{
-    padding-bottom: 5px;
+    padding-bottom: 3px;
     background: linear-gradient(90deg,rgb(0, 72, 140), rgb(207, 219, 229));
     animation: moveBackground 1s infinite linear alternate ;
     background-size: 500%;
@@ -76,12 +76,12 @@
 
 .position{
     position: relative;
-    width: 130px;
+    width: 110px;
     height: 100%; 
 }
 
 .positionOn{
-    width: 130px;
+    width: 110px;
     height: 100%; 
     background: white;
     color: black;
@@ -148,7 +148,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 130px;
+    width: 110px;
     min-height: 100%;
 }
 .sortText{

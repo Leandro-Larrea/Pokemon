@@ -6,3 +6,41 @@
     gap: 40px;
     justify-content: center;
 }
+
+.main{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+.asidePosition{
+    height: 100vh;
+    width: 200px;
+    position: relative;
+}
+
+.logic{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu{
+    width: 200px;
+    background-color: rgba(15, 15,15,1);
+    top: 0px;
+    height: 100vh;
+    position: fixed;
+}
+
+.sort{
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    height: 30px;
+    border: none;
+}
+.sort:hover{
+    background-color: rgba(0, 130, 170, 1);
+}
