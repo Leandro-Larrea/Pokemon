@@ -2,61 +2,30 @@
     width: 100%;
     gap: 10px;
     position: absolute;
-    transform: translateY(40px);
-    z-index: 10;
+    top: 60px;
+    transform: translateX(200px);
+    z-index: 0;
     padding: 0px 0px 6px 0px;
     /* border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px; */
     background: linear-gradient(90deg,rgb(0, 72, 140), rgb(234, 239, 245));
     animation: moveBackground 1s infinite linear alternate ;
     background-size: 500%;
-    transition: 1s;
+    transition: .3s;
     }
-
-    .hoverOrigin{
-        width: 100%;
-        gap: 10px;
-        position: absolute;
-        transform: translateY(40px);
-        z-index: 10;
-        padding: 0px 0px 6px 0px;
-        /* border-bottom-right-radius: 5px;
-        border-bottom-left-radius: 5px; */
-        background: linear-gradient(90deg,rgb(0, 72, 140), rgb(234, 239, 245));
-        animation: moveBackground 1s infinite linear alternate ;
-        background-size: 500%;
-        transition: 1s;
-        }
-.hoverOriginOff{
-    width: 100%;
-    gap: 10px;
-    position: absolute;
-    transform: translateY(-38px);
-    z-index: 10;
-    padding: 0px 0px 6px 0px;
-    /* border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px; */
-    background: linear-gradient(90deg,rgb(0, 72, 140), rgb(234, 239, 245));
-    animation: moveBackground 1s infinite linear alternate ;
-    background-size: 500%;
-    box-sizing: border-box;
-    transition: 1s;
- }
-        
+       
 .hoverOff{
     width: 100%;
     gap: 10px;
     position: absolute;
-    transform: translateY(-539.5px);
+    top: 60px;
     z-index: 10;
     padding: 0px 0px 6px 0px;
-    /* border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px; */
     background: linear-gradient(90deg,rgb(0, 72, 140), rgb(234, 239, 245));
     animation: moveBackground 1s infinite linear alternate ;
     background-size: 500%;
     box-sizing: border-box;
-    transition: 1s;
+    transition: 0.3s;
 }
 
 .option:hover{
@@ -86,8 +55,7 @@
     height: 100%;
     align-items:center;
     position: relative;
-    width: 100%;
-    
+    width: 100%; 
 }
 
 .option{
@@ -95,8 +63,7 @@
     color:white;
     background-color: transparent;
     cursor: pointer;
-    font-size: 1rem;
-    background-color:black;
+    background-color: rgba(15, 15,15,1);
     border: none;
     padding: 3px;
     width: 100%;

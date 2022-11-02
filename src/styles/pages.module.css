@@ -1,0 +1,22 @@
+.buttonContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    margin: 0;
+}
+.button{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid white;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: rgba(0, 130, 170, 1);
+    
+}

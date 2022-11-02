@@ -5,43 +5,42 @@ import style from "../styles/cards.module.css"
 import { useDispatch, useSelector } from "react-redux/";
 import { filterOrigin, getAll, sortPokemons } from "../redux/actions/index.js";
 import pikachu from "../images/pikachu-running.gif"
-
+import { Filter } from "./Filter.jsx";
+import { useState } from "react";
+import { Pages } from "./Pages.jsx";
 
 export function Cards(props){
 
     const pokemons = useSelector((state) => state.pokeList)
     const dispatch = useDispatch()
+
     useEffect(()=>{
         if(!pokemons.length){dispatch(getAll())}
     },[])
 
-    const origin = (e)=>{
-        console.log(e.target.value)
-        dispatch(filterOrigin(e.target.value))
-    }
+    useEffect(()=>{
+        setCurrent(1)
+    },[pokemons])
 
-    const sort = (e) =>{
-        dispatch(sortPokemons(e.target.value))
+    const [current, setCurrent] = useState(1)
+    const [pokePerPage, setPokePerPage] = useState(15)
+    const last = current * pokePerPage;
+    const first = last - pokePerPage;
+    const renderCokemons = pokemons.slice(first, last);
+    const update = (e) =>{
+        setCurrent(e)
     }
-
+ 
     if(pokemons.length){
-        console.log("aca ya tendriamos algo", pokemons)
 return(
-<main className={style.main}>
-    <aside className={style.asidePosition}>   
-        <div className={style.menu}>
-        <div className={style.logic}>
-        <button className={style.sort} onClick={sort} value="AZ">Sort by A-Z</button>
-        <button className={style.sort} onClick={sort} value="ZA">Sort by Z-A</button>
-        <button className={style.sort} onClick={sort} value="attackHigher">Sort by high Attack </button>
-        <button className={style.sort} onClick={sort} value="attackLower">Sort by less Attack</button>
-        <button onClick={origin} value="api" className={style.sort}>Filter by Api</button>
-        <button className={style.sort}>Filter by Db</button>
-        </div>
-        </div>
-    </aside>
+<main>
+    <Pages
+    currentPage={current}
+    length={pokemons.length}
+    updating={update}
+    pokePerPage={pokePerPage}></Pages>
         <div className={style.cards}>
-            {pokemons.map((e)=>{
+            {renderCokemons?.map((e)=>{
                 return(<Card key={e.id}
                     name = {e.name}
                     ability = {e.ability}
@@ -51,15 +50,17 @@ return(
                     />
                     )
                 }   
-            )       
-        }
+            )
+            }  
     </div>
 </main>       
-)
-}
+)}
 else{
     return <div>
-        <img className={style.pikachu} src={pikachu} alt="s" />
-    </div>
+    <img className={style.pikachu} src={pikachu} alt="s" />
+</div>       
 }
+     
 }
+
+

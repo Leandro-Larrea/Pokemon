@@ -9,6 +9,8 @@ import { BrowserRouter } from "react-router-dom";
 import {Data} from "./components/Data.jsx"
 import { render } from "@testing-library/react";
 import Favorites from "./components/Favorites.jsx";
+import { Home } from "./components/Home.jsx";
+import { Form } from "./components/Form.jsx";
 
 /** Line 8:7:  Parsing error: Adjacent JSX elements must be wrapped in an enclosing tag. */
 export default function App(){
@@ -18,8 +20,11 @@ export default function App(){
     return(
         <div className={style.app}>
         <React.Fragment> 
-        <Route path="/" component={Nav}/>
-        <Route exact path="/" component={Cards}/>
+        <Route path="/datitos/:id" component={Nav}/>
+        <Route path="/home" component={Nav}/>
+        <Route path="/post" component={Nav}/>
+        <Route path="/post" component={Form}/>
+        <Route exact path="/home" component={Home}/>
         <Route path = "/datitos/:id"  component ={Data}/>
         <Route path="/favorites" component={Favorites} />
         </React.Fragment>

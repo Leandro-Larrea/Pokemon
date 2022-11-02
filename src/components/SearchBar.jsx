@@ -47,6 +47,7 @@ export function Search(props){
             bar.current.focus()
         }
         if(e.key === "ArrowDown") {
+            e.preventDefault()
             if( count === null) {setCount(0)}
             else 
             if(count < recomendations.current.childNodes.length -1) {setCount(count +1)}

@@ -1,0 +1,48 @@
+.main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.form{
+    background-color: rgba(0, 0, 0, .8);
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10vh;
+    padding: 20px;
+}
+
+.itemContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    row-gap: 10px;
+}
+.item label{
+    display:block ;
+    color: white;
+}
+
+.checksContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 10px;
+}
+
+.itemCheck{
+    display: flex;
+    width: 120px;
+    justify-content: space-between;
+
+}
+
+.itemCheck input{
+    height: 20px;
+    width: 20px;
+}
+

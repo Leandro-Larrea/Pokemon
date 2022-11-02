@@ -1,19 +1,16 @@
-.nav{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    box-sizing: border-box;
-    margin: 0;
-    z-index: 10;
-    font-family: 'Roboto', sans-serif;
-    position: relative;
-}
-
 .navHover{
     padding-bottom: 3px;
-    background: linear-gradient(90deg,rgb(0, 72, 140), rgb(207, 219, 229));
-    animation: moveBackground 1s infinite linear alternate ;
     background-size: 500%;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: flex-start;
+    background:linear-gradient(90deg,rgb(54, 51, 53), rgb(207, 219, 229));
+    padding: 0 2vw;
+    position: relative;
+    flex-direction: row-reverse;
+    z-index: 50;
 }
 
 @keyframes moveBackground{
@@ -55,8 +52,15 @@
 .buttons{
     display: flex;
     font-size: 20px;
-    justify-content: center;
+    width: 100%;
     align-items: center;
+    gap: 20px;
+    justify-content: end;
+}
+
+.buttons a{
+    text-decoration: none;
+    color: white;
 }
 
 .navButton{
@@ -151,6 +155,7 @@
     width: 110px;
     min-height: 100%;
 }
+
 .sortText{
     cursor: pointer;
     color: white;
@@ -197,8 +202,6 @@
         position: relative;
     }
 
-
-
     /* .sortFilters:before{
         content: "";
        width: 130px;
@@ -207,7 +210,6 @@
        position: relative;
         background-color: black;
     }
-
      */
 
     .marginQuery{

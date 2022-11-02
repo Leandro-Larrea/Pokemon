@@ -27,28 +27,15 @@ export function Nav(props){
 }
 
     return(
-    <div className={style.navHover}>
-    <nav className={style.nav}>
-        <div className={style.margin}>
-            <div className={style.marginQuery}>
-                <div className={style.rellenoBar}></div>
+        <div className={style.navHover}>
+            <div className={style.buttons}>
+            <NavLink to="/home"><a>Home</a></NavLink>
+            <NavLink to="/post"><a>Post</a></NavLink>
+            </div>
                 <img className={style.logo} src={pokeball}/>
                 <Search/>
-            </div>
+                 
         </div>
-        <div className={style.sortFilters}>
-            <div className={style.position}>
-                <div onClick={fff} className={c=== 0?style.sortContainerFilter: style.sortContainerFilterOn}>
-                    <div  className={style.sortText}>
-                        <a className={c === 1? style.aOn: style.aOff}>Filter types</a>
-                    </div>
-                </div>
-                <Filter match={props.match} c={c} origin={true}></Filter>
-            </div>   
-        </div>
-       
-    </nav>
-</div>
 )
 }
      

@@ -22,7 +22,7 @@ export function Filter(props){
     }
     
     if(types.length){console.log("return", types)
-        return (<div className={props.c === 1? style.hover: style.hoverOff}>
+        return (<div className={props.c === 0? style.hoverOff: style.hover}>
                     <div className={style.container}>
                         <div className={style.selectContainer}>   
                             <button className={style.option}  onClick={filtrar} value="todos">Todos</button>
