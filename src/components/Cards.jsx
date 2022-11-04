@@ -32,6 +32,7 @@ export function Cards(props){
     }
  
     if(pokemons.length){
+        console.log(pokemons)
 return(
 <main>
     <Pages
@@ -46,7 +47,7 @@ return(
                     ability = {e.ability}
                     img = {e.img}
                     id = {e.id}
-                    types = {e.types}
+                    types = {!e.createdAtDb?e.types.map(e=> e.type):e.types}
                     />
                     )
                 }   

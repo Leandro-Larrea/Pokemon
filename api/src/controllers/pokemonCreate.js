@@ -9,8 +9,20 @@ const createCokemon = async(cokeObj)=>{
     let cokeType = await Types.findAll({where:{
         name: type
     }})
-    cokemon.addTypes(cokeType)
-    return cokemon
+     await cokemon.addTypes(cokeType)
+       let a = await Pokemons.findOne({
+           where:{
+               id:cokemon.id
+           },
+           include:{
+              model:Types,
+              attributes:["name"],
+              through:{
+               attributes:[]
+              } 
+           }
+   })
+return a
     } catch (error) {
         throw ("somenthing get wrong when creating the cokemon")
     } 

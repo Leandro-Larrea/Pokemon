@@ -6,7 +6,6 @@ import style from "../styles/data.module.css";
 import {Moves} from "./Moves.jsx"
 import pikachu from "../images/pikachu-running.gif"
 
-
 export function Data(props){
     const dispatch = useDispatch();
     const datos = useSelector((state) => state.pokeDetail)
@@ -35,56 +34,47 @@ export function Data(props){
          console.log(skill)
     }
  if(Object.values(datos).length){ 
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    console.log(datos)
     return(
-        <main className={style.container}> 
-
-            <div className={style.buttonContainer}>  
-            <h1 className={style.name}>{datos.name}!!</h1> 
-             
-                <button onClick={add} className={style.favorites}>Add to favorites</button>   
-            </div>
+        <main className={style.main}> 
+            <div className={style.container}>
+                <div className={style.buttonContainer}>  
+                    <h1 className={style.name}>{datos.name}!!</h1>  
+                    <button onClick={add} className={style.favorites}>Add to favorites</button>   
+                </div>
                 <section className={style.datosContainerContainer}>
                     <div className={style.datosContainer}>
-                        {console.log(datos)}
-
-                        <h3 className={style.order}> Order : {datos.order}</h3>
-                        <h3 className={style.order}> Base experience : {datos["base_experience"]}</h3>
-                        <h3 className={style.order}> Height : {datos["height"]}</h3>
-                        <h3 className={style.order}> Weight : {datos["weight"]}</h3>           
+                        {/* <h4 className={style.order}> Order : {datos.order}</h4> */}
+                        <h4 className={style.order}> Height : {datos["height"]}</h4>
+                        <h4 className={style.order}> Weight : {datos["weight"]}</h4>           
                         <div className={style.abilities}>
-                            <h3>Abilities</h3>
-                            {datos.abilities?.map((a,i)=>  <React.Fragment key= {i}><p>{a.ability.name}</p></React.Fragment>)} 
+                            <h4>Abilities</h4>
+                            {datos.createdAtDb? <p>none</p>:datos.abilities?.map((a,i)=>  <div key= {i}>{a.name}</div>)} 
                         </div>
                         <div className={style.icosContainer}>
-                            {datos.types?.map(p => <div>
-                         <div className={style.icoContainer}><img className={style.ico} src={require(`../images/type-icons/Pokémon_${p.type.name}_Type_Icon.svg.png`)}>
-                            </img><p className={style.icoName}>{p.type.name}</p></div>       
-                        </div> )}
+                            {datos.types?.map(p =>
+                                <div>
+                                    <div className={style.icoContainer}><img className={style.ico} src={require(`../images/type-icons/Pokémon_${p.name}_Type_Icon.svg.png`)}>
+                                    </img><p className={style.icoName}>{p.name}</p></div>       
+                                </div>
+                                )
+                            }
                         </div>
-                        <form className={style.form} onSubmit={sub}>
-                        <select className={style.selector} id = "select">{datos.moves && datos.moves.map((a,i) => <option key={i} className={style.option}>{a.move.name}</option>)} </select>
-                        <button type="submit" className={style.moveButton}>Search</button>
-                        </form>
-
+                        <p>Attack:{datos.attack}</p>
+                        <p>Hp:{datos.hp}</p>
+                        <p>Def:{datos.defense}</p>
+                        <p>Spa:{datos["special-attack"]}</p>
+                        <p>Spd:{datos["special-defense"]}</p>
+                        <p>Speed:{datos.speed}</p>
                     </div> 
                 </section>
-            <div className={datos.types[0].type.name === "water"?style.imageContainerWater:style.imageContainer}>  
-               {<img className={style.image} src={datos.sprites.other["official-artwork"].front_default} alt="asdasd"/>}
-              {skill && console.log(skill) && <Moves move={skill}/>}
-              </div>
-              <div className={style.statsContainer}>
-            {datos.stats?.map((s) => {
-                   return <div className={style.stats}>
-                            <p>{s["base_stat"]}</p>
-                            <p>{s.stat.name === 'special-attack'?"Satk":s.stat.name === 'special-defense'?"Sdfs":
-                            s.stat.name === 'speed'?"Spd": s.stat.name === 'defense'?"Dfs":
-                            s.stat.name === 'attack'?"Atk":s.stat.name}</p>              
-                        </div>
-                        }
-                    )}
-            </div>                  
-        </main>
+            <div className={datos.types.map(e=> e.name).includes("watter")?style.imageContainerWater:style.imageContainer}>  
+                   {<img className={style.image} src={datos.image} alt="asdasd"/>}
+                   {/* {skill && console.log(skill) && <Moves move={skill}/>} */}
+            </div>
+           
+        </div>                  
+    </main>
     )}
     return <div>
     <img src={pikachu} alt="s" />

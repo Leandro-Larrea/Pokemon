@@ -64,6 +64,22 @@ module.exports = (sequelize) =>{
                 min: 1,
                 max: 200
             }
+        },
+        width:{
+            type: DataTypes.INTEGER,
+            allowNULL: false,
+            validate:{
+                min: 1,
+                max: 200
+            }
+        },
+        height:{
+            type: DataTypes.INTEGER,
+            allowNULL: false,
+            validate:{
+                min: 1,
+                max: 200
+            }
         }
     })
 }

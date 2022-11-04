@@ -5,13 +5,15 @@
 }
 
 .form{
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, 0.678);
     width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10vh;
     padding: 20px;
+    margin: 20px 10px;
+    border-radius: 5px;
 }
 
 .itemContainer{
@@ -27,11 +29,28 @@
     color: white;
 }
 
+.input{
+    outline: none;
+    border: 3px solid transparent;
+    border-radius: 3px;
+}
+
+.errorI{
+    outline: none;
+    border: 3px solid red;
+    border-radius: 3px;
+}
+
+.input:focus{
+    border: 3px solid rgba(13, 155, 221, 0.795);
+}
+
 .checksContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
     gap: 10px;
+    border:1px solid transparent;
 }
 
 .itemCheck{
@@ -39,6 +58,14 @@
     width: 120px;
     justify-content: space-between;
 
+}
+
+.error{
+    border:1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start; 
+    gap: 10px;
 }
 
 .itemCheck input{

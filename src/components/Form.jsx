@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTypes } from "../redux/actions";
+import { getTypes, pokePost } from "../redux/actions";
 import style from "../styles/form.module.css"
 
 export const Form = ()=>{
@@ -16,37 +16,59 @@ export const Form = ()=>{
     const [info, setInfo] = useState({
         name:"",
         image:"", 
-        id:"", 
         hp:"",
         attack:"",
+        height:"",
+        weight:"",
         defense:"",
         specialAttack:"",
         specialDefense:"",
         speed:"",
-        types:[]            
+        type:[]            
     })
+
+    useEffect(()=>{
+        validation()
+        console.log(error)
+    },[info])
+
+    const [error, setError] = useState({})
 
     const handleChange = (e)=>{
         console.log(info)
-        if(e.target.name === "types"){
-            info.types.includes(e.target.value)? setInfo({...info,
-                 types: info.types.filter(a=> a !== e.target.value)}):
+        if(e.target.name === "type"){
+            info.type.includes(e.target.value)? setInfo({...info,
+                 type: info.type.filter(a=> a !== e.target.value)}):
                  setInfo({...info,
-                types: info.types.concat(e.target.value)})
+                type: info.type.concat(e.target.value)})
                 return     
         }
         setInfo({...info,
         [e.target.name]:e.target.value})
     }
 
+    const submit = (e)=>{
+        e.preventDefault()
+        if(Object.values(error).filter(e => e!== null).length) return alert("fill each field")
+        return dispatch(pokePost(info))
+        console.log(info)
+    }
+
+    function validation (){
+        let box = {};
+        !/(\w*)\b([A-Z][a-z]\w*)\b(\w*)/.test(info.name) || info.name.length > 40? box.name = true:
+         box.name =  null;
+        info.type.length? box.type = null: box.type = true
+        setError({...box})
+    }
 
     return(
         <main className={style.main}>
-            <form className={style.form}>
+            <form className={style.form} onSubmit={submit}>
                 <div className={style.itemContainer}>
                     <div className={style.item}>
                         <label htmlFor="name">Name</label>
-                        <input onChange={handleChange} className={style.input} name="name" type="text" value={info.name}></input>
+                        <input onChange={handleChange} className={error.name?style.errorI:style.input} name="name" type="text" value={info.name}></input>
                     </div>
                     <div className={style.item}>
                         <label htmlFor="image">Image</label>
@@ -60,7 +82,7 @@ export const Form = ()=>{
                     </div>
                     <div className={style.item}>
                         <label htmlFor="df">DF</label>
-                        <input onChange={handleChange} className={style.input} name="df" type="range" value={info.defense}></input>
+                        <input onChange={handleChange} className={style.input} name="defense" type="range" value={info.defense}></input>
                     </div>
                     <div className={style.item}>
                         <label htmlFor="attack">ATK</label>
@@ -78,15 +100,22 @@ export const Form = ()=>{
                         <label htmlFor="speed">Speed</label>
                         <input onChange={handleChange} className={style.input} name="speed" type="range" value={info.speed}></input>
                     </div>
+                    <div className={style.item}>
+                        <label htmlFor="weight">weight</label>
+                        <input onChange={handleChange} className={style.input} name="weight" type="range" value={info.weight}></input>
+                    </div> <div className={style.item}>
+                        <label htmlFor="height">height</label>
+                        <input onChange={handleChange} className={style.input} name="height" type="range" value={info.height}></input>
+                    </div>
                 </div>
                 <div className={style.item}>
-                <div className={style.checksContainer}>
+                <div className={error.type? style.error:style.checksContainer}>
                 {types.length && types.map((g,i) => {
                                 return(
                                     <div key={g.name} className={style.itemCheck}>
                                         <label key={g.name + 1} className={style.checkLabel} htmlFor={g.name}>{g.name}
                                         </label>
-                                        <input onClick={handleChange} name ="types" type="checkbox" value={g.name} className={style.check}  key={i}>
+                                        <input onClick={handleChange} name ="type" type="checkbox" value={g.name} className={style.check}  key={i}>
                                         </input>
                                     </div>
                                         )   
@@ -95,6 +124,7 @@ export const Form = ()=>{
                             }
                 </div>
                 </div>
+                <button type="subimit">Submit</button>
             </form>
         </main>
     )

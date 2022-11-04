@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM  from "react-dom";
 import * as ReactDOMClient from "react-dom/client"
 import App from "./App.js";
 import { BrowserRouter } from "react-router-dom";
@@ -15,9 +14,9 @@ const container = document.getElementById('root');
 //     </Provider>
 //     ,document.getElementById("root"))
 
-const root = ReactDOMClient.createRoot(container);
-root.render(
-<Provider store={store}>
+ReactDOMClient.createRoot(container)
+.render(
+    <Provider store={store}>
          <BrowserRouter>
              <App/>
          </BrowserRouter>

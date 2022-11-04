@@ -22,7 +22,9 @@ router.get("/", async (req,res)=>{
     }
     try {
        let a = await getCokemones()
-       return res.status(200).json(a)
+       let b = await getCokemonesDb();
+       let cokemones = a.concat(b)
+       return res.status(200).json(cokemones)
     } catch (error) {
         return res.status(404).send("somenthign get wrong")
     } 
@@ -80,7 +82,7 @@ router.post("/", async (req,res)=>{
     }
     try {
         let a = await pokeCreate(req.body)
-        return res.status(200).send("the cokemon has been created succesfully")
+        return res.status(200).send(a)
     }   catch (error) {
         res.status(404).send("something it's rly bad with u")
         } 

@@ -1,5 +1,5 @@
 import { GET_ALL, DELETE_POKEMON,GET_POKEMON, GET_POKEMON_DETAIL, GET_MOVE, GET_TYPES,
-FILTER_TYPES, CLEAN_UP, POKE_NAMES, FILTER_NAMES,} from "../actions/index.js"
+FILTER_TYPES, CLEAN_UP, POKE_NAMES, FILTER_NAMES,ADD_POKEMON} from "../actions/index.js"
 
 const initialState = {
     pokemons:[],
@@ -72,6 +72,11 @@ export function rootReducer(state = initialState, action){
             return{
                 ...state,
                 moveDetail: action.payload
+            }
+        case ADD_POKEMON:
+            return{
+                ...state,
+                pokeList: [...state.pokeList, action.payload]
             }
          
             default: 

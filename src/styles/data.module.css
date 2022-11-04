@@ -1,9 +1,16 @@
 .container{
-    background-color:rgb(23, 184, 248);
+    background-color:rgb(65, 66, 66, 0.8);
     display: grid;
     grid-template-columns: 1fr 9fr;
+    width: 70%;
+ 
+}
+
+.main{
     width: 100%;
-    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
 }
 
 *{
@@ -16,7 +23,7 @@
     grid-column: span 10;
     justify-content: space-between; 
     justify-content: left;
-    border-bottom: 5px solid black;
+    border-bottom: 2px solid black;
 }
 
 .stats{
@@ -44,7 +51,7 @@
 .favorites{
     padding: 8px;
     font-size: 18px;
-    border: 6px solid black;   
+    border: 2px solid black;   
     text-align: center;
     border-radius: 10px;
     font-weight: 600;
@@ -73,7 +80,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 90%;
-    border: 5px solid black;
+    border: 2px solid black;
     border-radius: 5px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -88,7 +95,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 90%;
-    border: 5px solid black;
+    border: 2px solid black;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-radius: 5px;
@@ -96,11 +103,9 @@
 }
 
 .datosContainerContainer{
-    padding: 5px; 
+    padding: 2px; 
     padding-right: 0;
     background-color: black;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
     margin-left: 5%;
 }
 
@@ -113,7 +118,7 @@
     height: 100%;
     background-color:white; 
     border: 1px solid black;
-    border-radius: 5px;
+    
 }
 .form{
   width: 100%;
@@ -127,7 +132,7 @@ select{
 
 .moveButton{
     width: 80px;
-    border: 3px solid black;
+    border: 2px solid black;
     border-radius: 7px;
     cursor: pointer;
 }

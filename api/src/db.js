@@ -13,7 +13,13 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 modelTypes(sequelize);
 modelPokemons(sequelize);
 
+let entries = Object.entries(sequelize.models);
+let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
+sequelize.models = Object.fromEntries(capsEntries);
+
 const {Pokemons, Types} = sequelize.models;
+
+
 
 Pokemons.belongsToMany(Types, {through:"pokemonType"})
 Types.belongsToMany(Pokemons, {through:"pokemonType"})

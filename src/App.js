@@ -20,11 +20,9 @@ export default function App(){
     return(
         <div className={style.app}>
         <React.Fragment> 
-        <Route path="/datitos/:id" component={Nav}/>
-        <Route path="/home" component={Nav}/>
-        <Route path="/post" component={Nav}/>
+        <Route path="/" component={Nav}/>
         <Route path="/post" component={Form}/>
-        <Route exact path="/home" component={Home}/>
+        <Route exact path="/" component={Home}/>
         <Route path = "/datitos/:id"  component ={Data}/>
         <Route path="/favorites" component={Favorites} />
         </React.Fragment>

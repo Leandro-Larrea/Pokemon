@@ -8,9 +8,10 @@ export const GET_MOVE = "GET_MOVE";
 export const GET_TYPES = "GET_TYPES";
 export const FILTER_TYPES = "FILTER_TYPES";
 export const CLEAN_UP = "CLEAN_UP";
-export const POKE_NAMES = "POKE_NAMES"
-export const CLEAN_UP2 = "CLEAN_UP2"
-export const FILTER_NAMES = "FILTER_NAMES"
+export const POKE_NAMES = "POKE_NAMES";
+export const CLEAN_UP2 = "CLEAN_UP2";
+export const FILTER_NAMES = "FILTER_NAMES";
+export const ADD_POKEMON = "ADD_POKEMON";
 
 //  export const getAll = () => async(dispatch) => {
 //   return await axios.get("http://localhost:3001/pokemons")
@@ -109,6 +110,13 @@ export const moveDetail = (move) => {
     }
 }
 
+export const pokePost = (pokemon) => async dispatch =>{
+    console.log(pokemon)
+await axios.post(`http://localhost:3001/pokemons`,pokemon)
+.then(a=> { console.log(a.data)
+    dispatch({type: ADD_POKEMON, payload:a.data})
+})
+.catch(error => console.log(error))}
 
 
 

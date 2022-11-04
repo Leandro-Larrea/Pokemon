@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {Card} from "./Card.jsx";
 import style from "../styles/favorites.module.css"
-import styleCard from "../styles/favorites.module.css"
+
 
 export class Favorites extends Component{
  

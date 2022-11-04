@@ -17,9 +17,9 @@ export function Card(props){
                   { props.ability?.map(e=> <div key={e} className={style.ability}>Ability: {e}</div> )}
                   <div className={style.icosContainer}>
                     {props.types && props.types.map(p => 
-                       <div className={style.icoContainer} key={p.type.name}>
-                          <img className={style.ico} src={require(`../images/type-icons/Pokémon_${p.type.name}_Type_Icon.svg.png`)}>
-                          </img><p className={style.icoName}>{p.type.name}</p></div>       
+                       <div className={style.icoContainer} key={p.name}>
+                          <img className={style.ico} src={require(`../images/type-icons/Pokémon_${p.name}_Type_Icon.svg.png`)}>
+                          </img><p className={style.icoName}>{p.name}</p></div>       
                      
                   )}
                   </div>

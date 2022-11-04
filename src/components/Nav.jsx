@@ -29,7 +29,7 @@ export function Nav(props){
     return(
         <div className={style.navHover}>
             <div className={style.buttons}>
-            <NavLink to="/home"><a>Home</a></NavLink>
+            <NavLink to="/"><a>Home</a></NavLink>
             <NavLink to="/post"><a>Post</a></NavLink>
             </div>
                 <img className={style.logo} src={pokeball}/>
