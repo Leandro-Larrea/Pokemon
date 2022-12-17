@@ -5,7 +5,9 @@ import { type } from "@testing-library/user-event/dist/type";
 
 export function Card(props){
     const im = require.context("../images/type-icons")
+ console.log(props)
     return(
+       
         <div className={style.card} key={props.id}>
 
             <Link to={`/datitos/${props.id}`} style={{ textDecoration: 'none' }} key={props.id}>
