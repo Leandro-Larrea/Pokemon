@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
-const {DB_USER, DB_PASSWORD, DB_HOST, DB_PORT} = process.env;
+const {DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME} = process.env;
 const modelPokemons = require("./models/pokemons.js");
 const modelTypes = require("./models/types.js")
 
