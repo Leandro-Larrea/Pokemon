@@ -5,6 +5,8 @@ import { getPokemon, getAll, filterNames, cleanUp } from "../redux/actions/index
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
 import { useRef } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+
 
 export function Search(props){
 
@@ -16,7 +18,8 @@ export function Search(props){
     const [count, setCount] = useState(null);
     const recomendations = useRef(null);
     const bar = useRef(null)
-
+    const location = useLocation()
+    const navigate = useHistory()
     function handleText(e){
     setText(e.target.value);   
     }
@@ -79,25 +82,26 @@ export function Search(props){
         dispatch(filterNames(text))
     },[text])
  
-    const sub = (e)=> {
+    const sub = async(e)=> {
     e.preventDefault();
     const numb = /\d/;
     if(text.length === 0){return}
-   
-
-    if(numb.test(text)){
-        let a = pokemons.find(p => p.id == text)
-        if(a){alert("that pokemon it's already in front of you!");
-        setText("")
-         return}
-    } else{
-    let r = pokemons.findIndex(p => p.name === text)
-    if(r !== -1){alert("that pokemon it's already in front of you!");
-    setText("")
-    return
-}}
     dispatch(cleanUp("pokeList"))
-    dispatch(getPokemon(text))
+    
+    //     if(numb.test(text)){
+        //         let a = pokemons.find(p => p.id == text)
+        //         if(a){alert("that pokemon it's already in front of you!");
+        //         setText("")
+//          return}
+//     } else{
+//     let r = pokemons.findIndex(p => p.name === text)
+//     if(r !== -1){alert("that pokemon it's already in front of you!");
+//     setText("")
+//     return
+// }}
+
+await dispatch(getPokemon(text))
+if(location.pathname !== "/") await navigate.push("/")
     setText("")
     }
 

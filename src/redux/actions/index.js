@@ -68,11 +68,10 @@ await axios.get(`http://localhost:3001/pokemons/origin/${type}`)
 })
 
  export const getPokemon = (name) => {
-     return (dispatch) =>{
-    return fetch(`http://localhost:3001/pokemons?name=${name}`)
- .then(answer => answer.json())
+     return async(dispatch) =>{
+    return await axios.get(`http://localhost:3001/pokemons?name=${name}`)
  .then(eso =>{
-     dispatch({type: GET_POKEMON, payload: eso})})   
+     dispatch({type: GET_POKEMON, payload: eso.data})})   
 }}
 
 export const filterNames = (str) => dispatch => dispatch({type: FILTER_NAMES, payload: str})
