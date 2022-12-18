@@ -39,8 +39,7 @@ export function Data(props){
         <main className={style.main}> 
             <div className={style.container}>
                 <div className={style.buttonContainer}>  
-                    <h1 className={style.name}>{datos.name}!!</h1>  
-                    <button onClick={add} className={style.favorites}>Add to favorites</button>   
+                    <h1 className={style.name}>{datos.name}!!</h1>    
                 </div>
                 <section className={style.datosContainerContainer}>
                     <div className={style.datosContainer}>
