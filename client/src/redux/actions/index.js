@@ -15,7 +15,7 @@ export const ADD_POKEMON = "ADD_POKEMON";
 export const NOT_FOUND = "NOT_FOUND";
 
 //  export const getAll = () => async(dispatch) => {
-//   return await axios.get("http://localhost:3001/pokemons")
+//   return await axios.get("https://pokemon-production.up.railway.app/pokemons")
 //   .then(asd =>{ 
 //     console.log(asd)
 //      dispatch({type: GET_ALL, payload: asd.data})
@@ -23,21 +23,21 @@ export const NOT_FOUND = "NOT_FOUND";
 // } 
 
 export const getAll = () => dispatch =>
-fetch("http://localhost:3001/pokemons")
+fetch("https://pokemon-production.up.railway.app/pokemons")
 .then(a => a.json())
 .then(b =>{
     dispatch({type: GET_ALL, payload: b})
 })
 
 export const getTypes = () => dispatch =>
-fetch("http://localhost:3001/types")
+fetch("https://pokemon-production.up.railway.app/types")
 .then(a => a.json())
 .then(b => { 
     dispatch({type:GET_TYPES, payload: b})
 })
 
 export const filterTypes = (type) => dispatch => 
-fetch(`http://localhost:3001/types?type=${type}`)
+fetch(`https://pokemon-production.up.railway.app/types?type=${type}`)
 .then(a => a.json())
 .then(b => {
     dispatch({type: FILTER_TYPES, payload: b})
@@ -46,7 +46,7 @@ fetch(`http://localhost:3001/types?type=${type}`)
 export const cleanUp = (a) => dispatch => {dispatch({type:CLEAN_UP, payload: a})}
 
 export const getPokemonDetail = (id) =>{ return (dispatch)=>
-    fetch(`http://localhost:3001/pokemons/${id}`)
+    fetch(`https://pokemon-production.up.railway.app/pokemons/${id}`)
     .then(asd => asd.json())
     .then(a =>{
         dispatch({
@@ -57,20 +57,20 @@ export const getPokemonDetail = (id) =>{ return (dispatch)=>
 }
 
 export const pokeNames = ()=> async dispatch =>
-await axios.get(`http://localhost:3001/pokemons/names`)
+await axios.get(`https://pokemon-production.up.railway.app/pokemons/names`)
 .then(a => {
     dispatch({type:POKE_NAMES, payload: a.data})
 })
 
 export const filterOrigin = (type) => async dispatch =>
-await axios.get(`http://localhost:3001/pokemons/origin/${type}`)
+await axios.get(`https://pokemon-production.up.railway.app/pokemons/origin/${type}`)
 .then(a => {
     dispatch({type: FILTER_TYPES, payload: a.data})
 })
 
  export const getPokemon = (name) => {
      return async(dispatch) =>{
-    return await axios.get(`http://localhost:3001/pokemons?name=${name}`)
+    return await axios.get(`https://pokemon-production.up.railway.app/pokemons?name=${name}`)
  .then(eso =>{
      dispatch({type: GET_POKEMON, payload: eso.data})})
      .catch(error => {
@@ -91,7 +91,7 @@ export const filterNames = (str) => dispatch => dispatch({type: FILTER_NAMES, pa
 }
 
 export const sortPokemons = (sort)=> dispatch =>
-fetch(`http://localhost:3001/pokemons/sort?type=${sort}`)
+fetch(`https://pokemon-production.up.railway.app/pokemons/sort?type=${sort}`)
 .then(a => a.json())
 .then(b => {
     dispatch({type:FILTER_TYPES, payload:b})
@@ -116,7 +116,7 @@ export const moveDetail = (move) => {
 
 export const pokePost = (pokemon) => async dispatch =>{
     console.log(pokemon)
-await axios.post(`http://localhost:3001/pokemons`,pokemon)
+await axios.post(`https://pokemon-production.up.railway.app/pokemons`,pokemon)
 .then(a=> { console.log(a.data)
     dispatch({type: ADD_POKEMON, payload:a.data})
 })
