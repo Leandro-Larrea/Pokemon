@@ -21,7 +21,7 @@
     border: 0;
     height: 240px;
     border: 5px solid rgba(0, 130, 205, 1);
-    border-top: 30px solid black;
+    border-top: 30px solid  rgba(15, 15,15,1);
     border-bottom: none;  
 }
 
@@ -31,12 +31,16 @@
     background-color: rgba(18, 19, 18, 0.493);
   
 }
-
+.pikachu{
+    margin: 100px;
+    height: 200px;
+    width: 200px;
+}
 
 .data{
     display: grid;
     padding: 15px;
-    border: 5px solid black;
+    border: 5px solid rgba(15, 15,15,1);
     border-bottom-color:rgba(0, 130, 205, 1);
     gap: 10px;
     font-size: 1 rem;
@@ -48,6 +52,7 @@
     font-family: 'Sarabun';
     font-weight: 400;
     height: 200px;
+   
    
 }
 .icosContainer{

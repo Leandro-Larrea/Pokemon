@@ -28,6 +28,82 @@
     
 }
 
+.pikachu{
+    margin: 100px;
+    
+}
+.notFoundContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-x: hidden;
+    
+}
+.notFound{
+    width: 600px;
+    height: 150px;
+    background-color: rgba(15, 15,15,1);
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid rgba(0, 130, 170, 1);
+    border-radius: 5px ;
+    overflow: hidden;
+    align-items: center;
+    position: relative;
+    z-index: 60;
+}
+
+.notFoundContainer::after{
+content: "";
+background-color: rgba(15, 15,15,0.8);
+top: 0;
+height: 100%;
+width: 100%;
+position:absolute;
+overflow-x: hidden;
+z-index: 55;
+left: 0;
+}
+
+.notFoundTextContainer{
+  gap: 10px;
+  padding: 10px; 
+  display: grid; 
+  cursor: default;
+  position: relative;
+  z-index: 60;
+}
+
+.notFoundTextContainer button{
+    width: 50px;
+    height: 30px;
+    justify-self: end;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    cursor: pointer;
+    position: relative;
+    z-index: 60;
+  }
+
+.pikachuSad{
+    width: 200px;
+    height: 130px;
+    align-self: flex-end;
+    position: relative;
+    z-index: 60;
+}
+
+.notFoundText{
+    color: white; 
+    flex-basis: 50%;
+    position: relative;
+    z-index: 40;
+}
+
 .menu{
     width: 223px;
     background-color: rgba(15, 15,15,1);

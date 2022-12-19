@@ -2,17 +2,19 @@ import React from "react";
 import style from "../styles/card.module.css"
 import { Link } from "react-router-dom"
 import { type } from "@testing-library/user-event/dist/type";
+import { RenderSmoothImage } from "./ImageLoader";
 
 export function Card(props){
     const im = require.context("../images/type-icons")
- console.log(props)
+ 
     return(
        
         <div className={style.card} key={props.id}>
 
             <Link to={`/datitos/${props.id}`} style={{ textDecoration: 'none' }} key={props.id}>
                    <div className={style.imgContainer}>
-                      <img className={style.img} src={props.img} alt="pikaimg"></img>
+                      {/* <img className={style.img} src={props.img} alt="pikaimg"></img> */}
+                      { <RenderSmoothImage src={props.img} alt={"pikaimg"}/> }
                   </div>
                   <div className={style.data}>
                   <div className={style.name}> {props.name} </div>

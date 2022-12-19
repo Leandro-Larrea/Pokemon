@@ -215,3 +215,8 @@ select option {
 .icoName::first-letter{
     text-transform: uppercase; 
 }
+
+.pikachu{
+    margin: 100px;
+   
+}

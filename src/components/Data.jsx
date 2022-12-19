@@ -76,7 +76,7 @@ export function Data(props){
     </main>
     )}
     return <div>
-    <img src={pikachu} alt="s" />
+    <img className={style.pikachu} src={pikachu} alt="s" />
 </div>
 }
 

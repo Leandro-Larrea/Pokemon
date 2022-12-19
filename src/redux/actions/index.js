@@ -12,6 +12,7 @@ export const POKE_NAMES = "POKE_NAMES";
 export const CLEAN_UP2 = "CLEAN_UP2";
 export const FILTER_NAMES = "FILTER_NAMES";
 export const ADD_POKEMON = "ADD_POKEMON";
+export const NOT_FOUND = "NOT_FOUND";
 
 //  export const getAll = () => async(dispatch) => {
 //   return await axios.get("http://localhost:3001/pokemons")
@@ -71,7 +72,11 @@ await axios.get(`http://localhost:3001/pokemons/origin/${type}`)
      return async(dispatch) =>{
     return await axios.get(`http://localhost:3001/pokemons?name=${name}`)
  .then(eso =>{
-     dispatch({type: GET_POKEMON, payload: eso.data})})   
+     dispatch({type: GET_POKEMON, payload: eso.data})})
+     .catch(error => {
+        console.log(error.message)
+        dispatch({type: NOT_FOUND, payload: "not found"})
+    })   
 }}
 
 export const filterNames = (str) => dispatch => dispatch({type: FILTER_NAMES, payload: str})
