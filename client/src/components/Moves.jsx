@@ -8,7 +8,6 @@ export class Moves extends Component{
         
     componentDidMount(){
         this.props.moveDetail(this.props.move)
-        console.log(this.props.moveDetail)
     }
 
      render(){

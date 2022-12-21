@@ -11,7 +11,6 @@ import { useState } from "react";
 import { Aside } from "./Aside.jsx";
 
 
-
 export function Nav(props){
  const dispatch = useDispatch();
  const names = useSelector((state) => state.pokeNames)
@@ -28,7 +27,6 @@ const [ c, setC ] = useState(0)
  },[])
 
 const origin = (e)=>{
-    console.log(e.target.value)
     dispatch(filterOrigin(e.target.value))
 }
 
@@ -40,36 +38,31 @@ const sort = (e) =>{
         <main className={style.main}>
             <div className={style.navHover}>
                 <div className={style.buttons}>
-                <NavLink to="/"><a>Home</a></NavLink>
-                <NavLink to="/post"><a>Post</a></NavLink>
-                <a onClick={f} className={style.filters}>Filters</a>
+                    <NavLink className={style.link} to="/">Home</NavLink>
+                    <NavLink className={style.link} to="/post">Post</NavLink>
+                    <a onClick={f} className={style.filters}>| | |</a>
                 </div>
-                    <img className={ style.logo} src={pokeball}/>
-                    <Search/>
-                    <div className={ c === 1?style.asideResponsive: style.asideResponsiveOff}>
-                        <div className={style.center}>
-                            <button className={style.sort} onClick={sort} value="AZ">Sort by A-Z</button>
-                            <button className={style.sort} onClick={sort} value="ZA">Sort by Z-A</button>
-                            <button className={style.sort} onClick={sort} value="attackHigher">Sort by high Attack </button>
-                            <button className={style.sort} onClick={sort} value="attackLower">Sort by less Attack</button>
-                            <button onClick={origin} value="api" className={style.sort}>Filter by Api</button>
-                            <button className={style.sort}>Filter by Db</button>
-                            <button className={style.sort} >Filter by types</button>
-                        </div>
+                <img className={ style.logo} src={pokeball}/>
+                <Search/>
+                <div className={ c === 1? style.asideResponsive: style.asideResponsiveOff }>
+                    <div className={style.center}>
+                         <NavLink style={{textDecoration:"none" ,color:"white"}} to="/">
+                            Home
+                        </NavLink>
+                        <NavLink style={{textDecoration:"none" ,color:"white"}} to="/post">
+                            Post
+                        </NavLink> 
+                        <button className={style.sort} onClick={sort} value="AZ">Sort by A-Z</button>
+                        <button className={style.sort} onClick={sort} value="ZA">Sort by Z-A</button>
+                        <button className={style.sort} onClick={sort} value="attackHigher">Sort by high Attack </button>
+                        <button className={style.sort} onClick={sort} value="attackLower">Sort by less Attack</button>
+                        <button onClick={origin} value="api" className={style.sort}>Filter by Api</button>
+                        <button className={style.sort}>Filter by Db</button>
+                        <button className={style.sort} >Filter by types</button>   
                     </div>
                 </div>
+            </div>
         </main>
 )
 }
      
-
-// <Search/>
-// <NavLink className={style.options}
-// to="/favorites"
-// >
-// <p className={style.options}>Favorites</p>
-// </NavLink>
-// <Link
-// to="/">
-// <img className={style.img} src={pokeball}/>
-// </Link>

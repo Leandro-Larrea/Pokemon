@@ -24,7 +24,6 @@ export function rootReducer(state = initialState, action){
                 pokeList:["not found"]
             }
         case GET_TYPES:
-            console.log("reducer", action.payload)
             return{
                 ...state,
                 types: action.payload
@@ -45,7 +44,6 @@ export function rootReducer(state = initialState, action){
                 pokeList:[action.payload]
             }
         case POKE_NAMES:
-            console.log(action.payload)
             return{
                 ...state,
                 pokeNames: action.payload
@@ -53,7 +51,6 @@ export function rootReducer(state = initialState, action){
         case FILTER_NAMES:
             
             let names =  state.pokeNames.filter(e => e.startsWith(action.payload.toLowerCase()))
-            console.log(action.payload)
             names.splice(10)
             if(names[0] === action.payload || action.payload.length === 0) names = []
             return{
@@ -66,13 +63,11 @@ export function rootReducer(state = initialState, action){
                 pokemons: state.pokemons.filter(e => e.id !== action.payload)
             }
         case GET_POKEMON_DETAIL:
-           console.log("redux detail", action.payload)
            return{
             ...state,
             pokeDetail: action.payload
            }
         case GET_MOVE:
-            console.log(action.payload)
             return{
                 ...state,
                 moveDetail: action.payload

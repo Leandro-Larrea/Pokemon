@@ -16,7 +16,7 @@ export const Aside = ()=>{
     
 
     const origin = (e)=>{
-        console.log(e.target.value)
+        
         dispatch(filterOrigin(e.target.value))
     }
 

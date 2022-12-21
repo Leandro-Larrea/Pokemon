@@ -17,11 +17,10 @@ export function Filter(props){
     const filtrar = (e)=>{
         dispatch(cleanUp("pokeList"))
         dispatch(filterTypes(e.target.value))
-        console.log(history)
         history.location.pathname !== "/" && history.push("/")
     }
     
-    if(types.length){console.log("return", types)
+    if(types.length){
         return (<div className={props.c === 0? style.hoverOff: style.hover}>
                     <div className={style.container}>
                         <div className={style.selectContainer}>   

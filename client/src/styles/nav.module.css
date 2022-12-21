@@ -17,7 +17,6 @@
     z-index: 50;
 }
 
-
 @keyframes moveBackground{
     0% {background-position-x: left;} 
     100%{background-position-x: right;} 
@@ -50,9 +49,9 @@
     100%{transform: scale(1);}
 }    */
 
-.logo:hover{
+/* .logo:hover{
     transform:rotate(180deg);
-}
+} */
 
 .buttons{
     display: flex;
@@ -61,21 +60,33 @@
     align-items: center;
     gap: 40px;
     justify-content: end;
+    justify-items: end;
+    position: relative;
 }
 
-.filters{
-    display: none;
-}
 
-.buttons a{
+
+
+ .buttons a{
     text-decoration: none;
     color: white;
     transition: 0.1;
+    cursor: pointer;
 }
 
-.buttons a:hover{
+ .buttons .link:hover{
     text-decoration: none;
     transform: scale(1.1);
+}  
+
+.filters{
+    display: none;
+    transform: rotate(90deg);
+    font-size: 20px;
+}
+.filters:focus{
+    height: 10px;
+    color: red;
 }
 
 .navButton{
@@ -211,13 +222,15 @@
     align-content: center;
     justify-content: center;
     z-index: 50;
-    background-color: rgba(15, 15, 15, .75);
-    display: none
-
+    background-color: rgba(15, 15, 15, .95);
+    display: none;
+    margin-top: 50px;
 }
-.asideResponsive button{
 
+.asideResponsive button a{
     display: block;
+    text-decoration: none;
+    color: white;
     text-align: center;
     align-self: center;
     width: 200px;
@@ -227,9 +240,11 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
     height: 60%;
     justify-content: space-around;
-    
 }
 
 .asideResponsiveOff{
@@ -249,51 +264,7 @@
 }
 
 @media screen and (max-width: 1092px){
-    .nav{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .sortFilters{
-        width: 100%;
-        justify-content: center;
-        position: relative;
-    }
-
-    /* .sortFilters:before{
-        content: "";
-       width: 130px;
-       left: -2px;
-       margin: 0 2px;
-       position: relative;
-        background-color: black;
-    }
-     */
-
-    .marginQuery{
-        margin-bottom: 5px;
-        justify-content: center;
-    }
-    .margin{
-        padding: 0;
-    }
-
-    .positionRellenoR, .positionRellenoL{
-        background-color: black;
-        height: 100%;
-        width: 300px;
-        position: absolute;
-        background-color: black;
-        z-index: 300;
-    }
-
-    .positionRellenoR{
-        right: -305px;
-    }  
-
-    .positionRellenoL{
-        left: -305px;
-    }  
+    
     
     
 }
@@ -330,5 +301,18 @@
     .buttons{
         gap: 0;
         justify-content: space-between;
+    }
+    .nav a{
+        display: none;
+    }
+    .buttons a:nth-child(3){
+        position: absolute;
+        right: 10px;
+    }
+    .buttons a:nth-child(2){
+        display: none;
+    }
+    .buttons a:nth-child(1){
+        display: none;
     }
 }

@@ -25,7 +25,6 @@ export function Search(props){
     }
 
     const move = (e)=>{
-        console.log(e.key)
         if(e.key === "ArrowDown") {
             e.preventDefault()
            if(recomendations.current.childNodes.length){ 

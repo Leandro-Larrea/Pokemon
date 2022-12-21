@@ -34,7 +34,6 @@ const location = useLocation();
 
     useEffect(()=>{
         validation()
-        console.log(error)
     },[info])
 
     const [error, setError] = useState({})

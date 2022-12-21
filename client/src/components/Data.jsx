@@ -23,18 +23,14 @@ export function Data(props){
         window.alert("This pokemon it's already into favorites")
         return}
         dispatch(catchPokemon(id))
-        console.log(curiosidad)
     }
     
     let skill = null
     const sub = (e) =>{
         e.preventDefault()
-         console.log(document.getElementById("select").value)
          skill = document.getElementById("select").value
-         console.log(skill)
     }
  if(Object.values(datos).length){ 
-    console.log(datos)
     return(
         <main className={style.main}> 
             <div className={style.container}>

@@ -74,7 +74,6 @@ await axios.get(`https://pokemon-production.up.railway.app/pokemons/origin/${typ
  .then(eso =>{
      dispatch({type: GET_POKEMON, payload: eso.data})})
      .catch(error => {
-        console.log(error.message)
         dispatch({type: NOT_FOUND, payload: "not found"})
     })   
 }}
@@ -115,7 +114,6 @@ export const moveDetail = (move) => {
 }
 
 export const pokePost = (pokemon) => async dispatch =>{
-    console.log(pokemon)
 await axios.post(`https://pokemon-production.up.railway.app/pokemons`,pokemon)
 .then(a=> { console.log(a.data)
 
