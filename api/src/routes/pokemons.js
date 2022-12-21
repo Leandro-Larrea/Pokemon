@@ -78,7 +78,7 @@ router.get("/sort", async (req,res)=>{
 router.post("/", async (req,res)=>{
     const {name, hp, attack, defense, specialAttack, specialDefense, speed } = req.body
     if(!name || !hp || !attack || !defense || !specialAttack || !specialDefense || !speed){
-        return res.status(404).send("insuficent data")
+        return res.status(200).send("insuficent data")
     }
     try {
         let a = await pokeCreate(req.body)

@@ -4,7 +4,6 @@ FILTER_TYPES, CLEAN_UP, POKE_NAMES, FILTER_NAMES,ADD_POKEMON, NOT_FOUND} from ".
 const initialState = {
     pokemons:[],
     pokeDetail:{},
-    pokeball:[],
     pokeList:[],
     pokeNames:[],
     pokeSearch:[],

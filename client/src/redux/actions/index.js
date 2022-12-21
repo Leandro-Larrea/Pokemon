@@ -118,7 +118,7 @@ export const pokePost = (pokemon) => async dispatch =>{
     console.log(pokemon)
 await axios.post(`https://pokemon-production.up.railway.app/pokemons`,pokemon)
 .then(a=> { console.log(a.data)
-    dispatch({type: ADD_POKEMON, payload:a.data})
+
 })
 .catch(error => console.log(error))}
 

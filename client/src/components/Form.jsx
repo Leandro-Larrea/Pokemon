@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
 import { getTypes, pokePost } from "../redux/actions";
 import style from "../styles/form.module.css"
 
+
 export const Form = ()=>{
+
+const history = useHistory();
+const location = useLocation();
 
     const dispatch = useDispatch();
     const types = useSelector(state=> state.types)
@@ -47,11 +52,12 @@ export const Form = ()=>{
         [e.target.name]:e.target.value})
     }
 
-    const submit = (e)=>{
+    const submit = async (e)=>{
         e.preventDefault()
         if(Object.values(error).filter(e => e!== null).length) return alert("fill each field")
-        return dispatch(pokePost(info))
-        console.log(info)
+        await dispatch(pokePost(info))
+        history.push("/")
+        
     }
 
     function validation (){
@@ -76,10 +82,10 @@ export const Form = ()=>{
                     </div>
                 </div>
                 <div className={style.itemContainer}>
-                <div className={style.item}>
+                { <div className={style.item}>
                         <label htmlFor="hp">HP</label>
                         <input onChange={handleChange} className={style.input} name="hp" type="range" value={info.hp} ></input>
-                    </div>
+                    </div> }
                     <div className={style.item}>
                         <label htmlFor="df">DF</label>
                         <input onChange={handleChange} className={style.input} name="defense" type="range" value={info.defense}></input>
@@ -122,9 +128,12 @@ export const Form = ()=>{
                                     }
                                 )
                             }
-                </div>
-                </div>
-                <button type="subimit">Submit</button>
+                        </div>
+                    </div>
+                <button style={{
+                    width:"100px" ,margin: "auto", background: "transparent",borderColor:"white",color:"white", cursor: "pointer"
+                    }} 
+                type="subimit">Submit</button>
             </form>
         </main>
     )

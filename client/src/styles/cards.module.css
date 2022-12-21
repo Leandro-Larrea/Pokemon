@@ -5,18 +5,17 @@
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
+    width: 100%;
 }
 
-.main{
+ .main{
     display: grid;
-    grid-template-columns: 200px 1fr;
-}
+    grid-template-columns: 240px 1fr;
+} 
 
 .asidePosition{
     height: 100vh;
-    width: 200px;
     position: relative;
-    
 }
 
 .logic{
@@ -133,4 +132,10 @@ left: 0;
 }
 .sort:hover{
     background-color: rgba(0, 130, 170, 1);
+}
+
+@media screen and (max-width:700px){
+    .main{
+        display: flex;
+    }
 }

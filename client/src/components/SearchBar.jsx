@@ -85,6 +85,7 @@ export function Search(props){
     const sub = async(e)=> {
     e.preventDefault();
     const numb = /\d/;
+    alert("leandro hizo esto")
     if(text.length === 0){return}
     dispatch(cleanUp("pokeList"))
     
