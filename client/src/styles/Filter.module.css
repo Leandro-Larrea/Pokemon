@@ -13,6 +13,21 @@
     background-size: 500%;
     transition: .3s;
     }
+
+    .hoverD{
+        width: 100%;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        z-index: 0;
+        padding: 0px 0px 6px 0px;
+        /* border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px; */
+    
+        animation: moveBackground 1s infinite linear alternate ;
+        background-size: 500%;
+        transition: .3s;
+        }
        
 .hoverOff{
     width: 100%;
@@ -38,7 +53,6 @@
 } 
 
 .container{
-    padding-top: 10px;
     gap: 10px;
     background-color: black;
     /* border-bottom-right-radius: 5px;

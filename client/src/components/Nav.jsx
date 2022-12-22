@@ -16,6 +16,7 @@ export function Nav(props){
  const names = useSelector((state) => state.pokeNames)
 
 const [ c, setC ] = useState(0)
+const [ d, setD ] = useState(0)
 
  const f = ()=>{
     c === 0? setC(1): setC(0)
@@ -31,7 +32,13 @@ const origin = (e)=>{
 }
 
 const sort = (e) =>{
+    setC(0)
     dispatch(sortPokemons(e.target.value))
+}
+
+const enableFilters = ()=>{
+    setC(0)
+    setD(1)
 }
 
     return(
@@ -46,10 +53,10 @@ const sort = (e) =>{
                 <Search/>
                 <div className={ c === 1? style.asideResponsive: style.asideResponsiveOff }>
                     <div className={style.center}>
-                         <NavLink style={{textDecoration:"none" ,color:"white"}} to="/">
+                         <NavLink onClick={()=> setC(0)} style={{textDecoration:"none" ,color:"white"}} to="/">
                             Home
                         </NavLink>
-                        <NavLink style={{textDecoration:"none" ,color:"white"}} to="/post">
+                        <NavLink onClick={()=> setC(0)} style={{textDecoration:"none" ,color:"white"}} to="/post">
                             Post
                         </NavLink> 
                         <button className={style.sort} onClick={sort} value="AZ">Sort by A-Z</button>
@@ -58,7 +65,12 @@ const sort = (e) =>{
                         <button className={style.sort} onClick={sort} value="attackLower">Sort by less Attack</button>
                         <button onClick={origin} value="api" className={style.sort}>Filter by Api</button>
                         <button className={style.sort}>Filter by Db</button>
-                        <button className={style.sort} >Filter by types</button>   
+                        <button onClick={enableFilters} className={style.sort} >Filter by types</button>   
+                    </div>
+                </div>
+                <div className={ d === 1? style.asideResponsive: style.asideResponsiveOff }>
+                    <div className={style.center}> 
+                         <Filter d={true} setD={setD}></Filter>
                     </div>
                 </div>
             </div>
