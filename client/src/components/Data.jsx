@@ -39,7 +39,6 @@ export function Data(props){
                 </div>
                 <section className={style.datosContainerContainer}>
                     <div className={style.datosContainer}>
-                        {/* <h4 className={style.order}> Order : {datos.order}</h4> */}
                         <h4 className={style.order}> Height : {datos["height"]}</h4>
                         <h4 className={style.order}> Weight : {datos["weight"]}</h4>           
                         <div className={style.abilities}>
@@ -63,17 +62,17 @@ export function Data(props){
                         <p>Speed:{datos.speed}</p>
                     </div> 
                 </section>
-            <div className={datos.types.map(e=> e.name).includes("watter")?style.imageContainerWater:style.imageContainer}>  
+                <div className={datos.types.map(e=> e.name).includes("watter")?style.imageContainerWater:style.imageContainer}>  
                    {<img className={style.image} src={datos.image} alt="asdasd"/>}
                    {/* {skill && console.log(skill) && <Moves move={skill}/>} */}
-            </div>
-           
-        </div>                  
-    </main>
+                </div>  
+            </div>                  
+        </main>
     )}
-    return <div>
+         return  <div className={style.loader}>
     <img className={style.pikachu} src={pikachu} alt="s" />
-</div>
+</div>       
 }
+
 
 

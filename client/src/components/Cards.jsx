@@ -83,7 +83,7 @@ if(pokemons[0] === "not found"){
    )
 }
 else{
-    return  <div>
+    return  <div className={style.loader}>
                 <img className={style.pikachu} src={pikachu} alt="s" />
             </div>       
 }

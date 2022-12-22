@@ -12,7 +12,13 @@
     display: grid;
     grid-template-columns: 240px 1fr;
 } 
-
+.loader{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    height: calc(100vh- 50px);
+    align-items: center;
+}
 .asidePosition{
     height: 100vh;
     position: relative;
@@ -28,7 +34,7 @@
 }
 
 .pikachu{
-    margin: 100px;
+
     
 }
 .notFoundContainer{
