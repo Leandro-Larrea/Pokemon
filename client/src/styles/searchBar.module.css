@@ -84,6 +84,7 @@
     transition: 0.1s;
     position: absolute;
     z-index: 30;
+    width: 190px;
 
     
 }
