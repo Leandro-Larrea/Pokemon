@@ -100,3 +100,20 @@
 .options:focus{
     border: none;
 }
+
+@media screen and (max-width: 700px) {
+    .container{
+        display: flex;
+        column-gap: 0px;
+        max-width: 400px;
+        justify-content: center;
+        align-content: center;
+    }
+    .button{
+        width: 30px;
+       }
+
+       .button img{
+        width: 30px;
+       }
+}

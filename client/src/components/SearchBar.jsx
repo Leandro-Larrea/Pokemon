@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
 import { useRef } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import lupa from "../images/lupa.png";
 
 
 export function Search(props){
@@ -23,6 +24,25 @@ export function Search(props){
     function handleText(e){
     setText(e.target.value);   
     }
+
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+
+    useEffect(() => {
+      function handleWindowResize() {
+        setWindowSize(getWindowSize());
+      }
+      
+      window.addEventListener('resize', handleWindowResize);
+      
+      return () => {
+          window.removeEventListener('resize', handleWindowResize);
+      };
+  }, []);
+
+  function getWindowSize() {
+    const innerWidth = window.innerWidth;
+    return innerWidth
+  }
 
     const move = (e)=>{
         if(e.key === "ArrowDown") {
@@ -122,7 +142,8 @@ if(location.pathname !== "/") await navigate.push("/")
                 }
                 </div>   
             </div>
-            <button className={style.button} type="submit">Buscar</button>
+            {windowSize < 450? <button className={style.button} type="submit"><img src={lupa}/></button>:<button className={style.button} type="submit">Search</button> }
+            
                
         </form>    
     )
