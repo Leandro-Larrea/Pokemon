@@ -47,7 +47,7 @@
 
 .checksContainer{
     display: flex;
-    flex-wrap: wrap;
+    
     justify-content: start;
     gap: 10px;
     border:1px solid transparent;
@@ -64,12 +64,28 @@
     border:1px solid red;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start; 
+    justify-content: space-around; 
     gap: 10px;
 }
 
 .itemCheck input{
     height: 20px;
     width: 20px;
+}
+
+@media screen and (max-width: 400px) {
+    *{
+        grid-column: span 2;
+    }
+    .inputCheck{
+        grid-column: span 1;
+        flex-wrap: nowrap;
+        
+        width: 30px;
+    }
+    .error{
+        flex-wrap: wrap;
+        
+    }
 }
 

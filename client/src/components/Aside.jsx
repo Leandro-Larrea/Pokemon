@@ -35,7 +35,7 @@ export const Aside = ()=>{
                     <button className={style.sort} onClick={sort} value="attackHigher">Sort by high Attack </button>
                     <button className={style.sort} onClick={sort} value="attackLower">Sort by less Attack</button>
                     <button onClick={origin} value="api" className={style.sort}>Filter by Api</button>
-                    <button className={style.sort}>Filter by Db</button>
+                    <button className={style.sort} onClick={origin} value="db">Filter by Db</button>
                     <button className={style.sort} onClick={f}>Filter by types</button>
                 </div>
             </div>

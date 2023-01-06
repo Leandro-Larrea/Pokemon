@@ -8,7 +8,6 @@ import { Route, Switch, Link} from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import {Data} from "./components/Data.jsx"
 import { render } from "@testing-library/react";
-import Favorites from "./components/Favorites.jsx";
 import { Home } from "./components/Home.jsx";
 import { Form } from "./components/Form.jsx";
 
@@ -24,7 +23,6 @@ export default function App(){
         <Route path="/post" component={Form}/>
         <Route exact path="/" component={Home}/>
         <Route path = "/datitos/:id"  component ={Data}/>
-        <Route path="/favorites" component={Favorites} />
         </React.Fragment>
        </div>
     )
