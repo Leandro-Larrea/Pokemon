@@ -45,8 +45,8 @@ const enableFilters = ()=>{
         <main className={style.main}>
             <div className={style.navHover}>
                 <div className={style.buttons}>
-                    <NavLink className={style.link} to="/">Home</NavLink>
-                    <NavLink className={style.link} to="/post">Post</NavLink>
+                    <NavLink className={style.link} to="/poke/home">Home</NavLink>
+                    <NavLink className={style.link} to="/poke/post">Post</NavLink>
                     <a onClick={f} className={style.filters}>| | |</a>
                 </div>
                 <img className={ style.logo} src={pokeball}/>

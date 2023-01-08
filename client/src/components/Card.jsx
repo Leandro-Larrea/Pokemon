@@ -11,7 +11,7 @@ export function Card(props){
        
         <div className={style.card} key={props.id}>
 
-            <Link to={`/datitos/${props.id}`} style={{ textDecoration: 'none' }} key={props.id}>
+            <Link to={`/poke/datitos/${props.id}`} style={{ textDecoration: 'none' }} key={props.id}>
                    <div className={style.imgContainer}>
                       {/* <img className={style.img} src={props.img} alt="pikaimg"></img> */}
                       { <RenderSmoothImage src={props.img} alt={"pikaimg"}/> }

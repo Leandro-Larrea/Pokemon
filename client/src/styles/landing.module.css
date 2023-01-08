@@ -1,0 +1,41 @@
+.landing{
+    overflow: hidden;
+    background-image: url("../images/background/pokeLanding.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5%;
+    gap: 10%;
+    filter: contrast(.85);
+}
+
+.title{
+    text-align: center;
+    font-size: 3.3rem;
+    font-family: 'Pokemon Solid', sans-serif;
+    color: rgb(251, 255, 16);
+    text-shadow: -8px 8px black;
+
+}
+
+.button{
+    background-color: transparent;
+    font-size: 25px;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    color: rgba(243,243,243, 0.95);
+    background-color: rgba(0,0,0, 0.7);
+    box-shadow: 0 0 6px black;
+    border: none;
+}
+
+.button:hover{
+    box-shadow: 0 0 9px black;
+    transform: scale(1.1);
+}

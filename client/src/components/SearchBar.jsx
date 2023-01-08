@@ -120,7 +120,7 @@ export function Search(props){
 // }}
 
 await dispatch(getPokemon(text))
-if(location.pathname !== "/") await navigate.push("/")
+if(location.pathname !== "/") await navigate.push("/poke/home")
     setText("")
     }
 

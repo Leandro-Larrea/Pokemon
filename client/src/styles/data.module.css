@@ -202,7 +202,7 @@ select option {
     justify-self: center;
     color: rgb(251, 255, 16);
     letter-spacing: 3px;
-    font-family: 'Pokemon Solid';
+    font-family: 'Pokemon Solid', sans-serif;
     text-align: center;
     line-height: 30px;
     font-weight: 300;

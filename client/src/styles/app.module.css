@@ -3,6 +3,16 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.scroll{
+    background-image: url("../images/background/pokemon-trofeo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow-y: scroll;
     height: 100vh;
+    overflow-y: scroll;
 }
