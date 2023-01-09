@@ -1,7 +1,7 @@
 .container{
     background-color:rgb(19, 18, 18);
     display: grid;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 3fr 9fr;
     width: 70%;
     border-top: 5px solid rgba(0, 130, 205, 1);
     border-radius: 10px;
@@ -9,9 +9,9 @@
 
 .main{
     height: 90vh;
+    padding-top: 50px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr;
     align-items: center;
     justify-items: center;
 }
@@ -159,10 +159,18 @@ select option {
 }
 
 .abilities{
-    display: grid;
+    display:flex;
+    gap: 10px;
     grid-template-columns: 1fr 1fr;
-    width: 250px;
+    max-width: 250px;
     background-color: white;  
+    justify-self: left;
+    flex-wrap: wrap;
+}
+
+.abilities h4{
+    width: 100%;
+    display: block;
 }
 
 .abilities h3{
@@ -218,5 +226,20 @@ select option {
 
 .icoName::first-letter{
     text-transform: uppercase; 
+}
+
+@media screen and (max-width: 700px) {
+     .container{
+        width: 90%;
+      
+    } 
+    .datosContainerContainer{
+        grid-column: span 10;
+        order: 3;
+    }
+    .imageContainer{
+        grid-column: span 10;
+        order:2
+    }
 }
 

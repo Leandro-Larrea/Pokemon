@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { getTypes, pokePost } from "../redux/actions";
 import style from "../styles/form.module.css"
+import wrong from "../images/redCross.png"
+import ok from "../images/ok-icon.png"
 
 
 export const Form = ()=>{
@@ -21,32 +23,47 @@ const location = useLocation();
     const [info, setInfo] = useState({
         name:"",
         image:"", 
-        hp:"",
-        attack:"",
-        height:"",
-        weight:"",
-        defense:"",
-        specialAttack:"",
-        specialDefense:"",
-        speed:"",
+        hp:0,
+        attack:0,
+        height:0,
+        weight:0,
+        defense:0,
+        specialAttack:0,
+        specialDefense:0,
+        speed:0,
         type:[]            
     })
 
-    useEffect(()=>{
-        validation()
-    },[info])
+    const [interacting, setInteracting] = useState({
+        name:null,
+        stats:null,
+        hp:null,
+        attack:null,
+        height:null,
+        weight:null,
+        defense:null,
+        specialAttack:null,
+        specialDefense:null,
+        speed:null,
+        types:null
+    })
+
+     useEffect(()=>{
+         validation()
+     },[info])
 
     const [error, setError] = useState({})
 
     const handleChange = (e)=>{
-        console.log(info)
         if(e.target.name === "type"){
+            setInteracting({...interacting, types: true})
             info.type.includes(e.target.value)? setInfo({...info,
                  type: info.type.filter(a=> a !== e.target.value)}):
                  setInfo({...info,
                 type: info.type.concat(e.target.value)})
                 return     
         }
+        setInteracting({...interacting, [e.target.name]: true})
         setInfo({...info,
         [e.target.name]:e.target.value})
     }
@@ -55,70 +72,53 @@ const location = useLocation();
         e.preventDefault()
         if(Object.values(error).filter(e => e!== null).length) return alert("fill each field")
         await dispatch(pokePost(info))
-        history.push("/")
-        
+        history.push("/") 
     }
 
     function validation (){
         let box = {};
-        !/(\w*)\b([A-Z][a-z]\w*)\b(\w*)/.test(info.name) || info.name.length > 40? box.name = true:
-         box.name =  null;
-        info.type.length? box.type = null: box.type = true
+        if(interacting.name) !/(\w*)\b([A-Z][a-z]\w*)\b(\w*)/.test(info.name) || info.name.length > 40? box.name = wrong:
+         box.name =  ok;
+        if(interacting.types) info.type.length? box.types = ok: box.types = wrong
+        Object.keys(info).filter(e=> e !== "name" && e !== "image" && e !== "type").forEach(e=> {if(interacting[e]) info[e] > 0? box[e]=ok: box[e]=wrong})
         setError({...box})
+        console.log(error)
     }
 
     return(
         <main className={style.main}>
             <form className={style.form} onSubmit={submit}>
-                <div className={style.itemContainer}>
-                    <div className={style.item}>
+                <h1 className={style.formTitle}>Create your Pokemon</h1>
+                <div className={style.rangeContainer}>
+                    <div className={style.itemText}>
                         <label htmlFor="name">Name</label>
-                        <input onChange={handleChange} className={error.name?style.errorI:style.input} name="name" type="text" value={info.name}></input>
+                        <img src={error.name} className={style.validationRange}></img>
+                        <input onChange={handleChange} className={style.input} name="name" type="text" value={info.name}></input>
                     </div>
-                    <div className={style.item}>
-                        <label htmlFor="image">Image</label>
+                    <div className={style.itemText}>
+                        <label style={{gridColumn: "span 2"}} htmlFor="image">Image</label>
                         <input onChange={handleChange} className={style.input} name="image" type="text" value={info.image}></input>
                     </div>
                 </div>
-                <div className={style.itemContainer}>
-                { <div className={style.item}>
-                        <label htmlFor="hp">HP</label>
-                        <input onChange={handleChange} className={style.input} name="hp" type="range" value={info.hp} ></input>
-                    </div> }
-                    <div className={style.item}>
-                        <label htmlFor="df">DF</label>
-                        <input onChange={handleChange} className={style.input} name="defense" type="range" value={info.defense}></input>
-                    </div>
-                    <div className={style.item}>
-                        <label htmlFor="attack">ATK</label>
-                        <input onChange={handleChange} className={style.input} name="attack" type="range" value={info.attack}></input>
-                    </div>
-                    <div className={style.item}>
-                        <label htmlFor="specialAttack">SPA</label>
-                        <input onChange={handleChange} className={style.input} name="specialAttack" type="range" value={info.specialAttack}></input>
-                    </div>
-                    <div className={style.item}>
-                        <label htmlFor="specialDefense">SPD</label>
-                        <input onChange={handleChange} className={style.input} name="specialDefense" type="range" value={info.specialDefense}></input>
-                    </div>
-                    <div className={style.item}>
-                        <label htmlFor="speed">Speed</label>
-                        <input onChange={handleChange} className={style.input} name="speed" type="range" value={info.speed}></input>
-                    </div>
-                    <div className={style.item}>
-                        <label htmlFor="weight">weight</label>
-                        <input onChange={handleChange} className={style.input} name="weight" type="range" value={info.weight}></input>
-                    </div> <div className={style.item}>
-                        <label htmlFor="height">height</label>
-                        <input onChange={handleChange} className={style.input} name="height" type="range" value={info.height}></input>
-                    </div>
+                <div className={style.rangeContainer}>
+                    <h2>Select Stats</h2>
+                    {Object.keys(info).filter(e=> e !== "name" && e !== "image" && e !=="type").map((e,i) =>(
+                        <div key={i} className={style.itemRange}>
+                            <label htmlFor={e}>{e.slice(0,1).toUpperCase() + e.slice(1)}</label>
+                            <img className={style.validationRange} src={error[e]}></img>  
+                            <input onChange={handleChange} className={style.input} name={e} type="range" value={info[e]}></input>
+                            <div className={style.inputValue}>{info[e]}</div>
+                        </div>
+                        )
+                    )}
                 </div>
                 <div className={style.item}>
                 <div className={error.type? style.error:style.checksContainer}>
+                <h2>Select Type</h2>{error.types && <img className={style.validation} src={error.types}></img>}
                 {types.length && types.map((g,i) => {
                                 return(
                                     <div key={g.name} className={style.itemCheck}>
-                                        <label key={g.name + 1} className={style.checkLabel} htmlFor={g.name}>{g.name}
+                                        <label key={g.name + 1} className={style.checkLabel} htmlFor={g.name}>{g.name.slice(0,1).toUpperCase() + g.name.slice(1)}
                                         </label>
                                         <input onClick={handleChange} name ="type" type="checkbox" value={g.name} className={style.check}  key={i}>
                                         </input>
@@ -129,9 +129,7 @@ const location = useLocation();
                             }
                         </div>
                     </div>
-                <button style={{
-                    width:"100px" ,margin: "auto", background: "transparent",borderColor:"white",color:"white", cursor: "pointer"
-                    }} 
+                <button className={style.submit} 
                 type="subimit">Submit</button>
             </form>
         </main>

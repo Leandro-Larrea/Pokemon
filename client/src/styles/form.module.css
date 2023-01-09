@@ -10,29 +10,93 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10vh;
+    gap: 5vh;
     padding: 20px;
     margin: 20px 10px;
     border-radius: 5px;
 }
 
-.itemContainer{
+.formTitle{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Pokemon Solid', sans-serif;
+    color: rgb(251, 255, 16);
+    letter-spacing: .5vw;
+    text-shadow: -5px -5px 0 rgb(0, 54, 163), 5px -5px 0 rgb(0, 54, 163), -5px 5px 0 rgb(0, 54, 163), 5px 5px 0 rgb(0, 54, 163);
+}
+
+label{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.rangeContainer{
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
+    justify-content: center;
     justify-items: center;
     align-items: center;
     row-gap: 10px;
+    position: relative;
 }
-.item label{
+
+.rangeContainer h2{
+    margin: 0;
+    padding: 0;
+    grid-column: span 2;
+    font-family: 'Pokemon Solid', sans-serif;
+    color: rgb(251, 255, 16);
+    letter-spacing: .5vw;
+    text-shadow: -5px -5px 0 rgb(0, 54, 163), 5px -5px 0 rgb(0, 54, 163), -5px 5px 0 rgb(0, 54, 163), 5px 5px 0 rgb(0, 54, 163);
+}
+
+.itemRange{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+}
+
+.itemText{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+}
+.itemText input{
+    grid-column: span 2;
+}
+
+.itemRange label, .itemText label{
     display:block ;
+    grid-column: span 2;
     color: white;
+    justify-self: left;
+}
+
+.validationRange{
+    width: 20px;
+    position: absolute;
+    top: 0px;
 }
 
 .input{
     outline: none;
     border: 3px solid transparent;
     border-radius: 3px;
+
+}
+
+.itemRange input{
+    cursor: pointer;
 }
 
 .errorI{
@@ -45,13 +109,23 @@
     border: 3px solid rgba(13, 155, 221, 0.795);
 }
 
+.inputValue{
+    background-color: white;
+    width: 40px;
+    border-radius: 3px;
+    padding: 0 0px 0 3px;
+}
+
 .checksContainer{
     display: flex;
-    
-    justify-content: start;
+    flex-wrap: wrap;
+    justify-content: space-around; 
     gap: 10px;
     border:1px solid transparent;
+    position: relative;
 }
+
+
 
 .itemCheck{
     display: flex;
@@ -66,12 +140,44 @@
     flex-wrap: wrap;
     justify-content: space-around; 
     gap: 10px;
+    position: relative;
+}
+
+ .checksContainer h2{
+    text-align: center;
+    width: 100%;
+    font-family: 'Pokemon Solid', sans-serif;
+    color: rgb(251, 255, 16);
+    letter-spacing: .5vw;
+    text-shadow: -5px -5px 0 rgb(0, 54, 163), 5px -5px 0 rgb(0, 54, 163), -5px 5px 0 rgb(0, 54, 163), 5px 5px 0 rgb(0, 54, 163);
 }
 
 .itemCheck input{
     height: 20px;
     width: 20px;
     cursor: pointer;
+}
+
+.validation{
+    position: absolute;
+    top: 0;
+    width: 30px;
+    right: 20px;
+
+}
+
+.submit{
+    width:100px;
+    margin: auto;
+    background: transparent;
+    border-color:white;
+    color:white;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    }
+.submit:hover{
+    transform: scale(1.1);
 }
 
 @media screen and (max-width: 400px) {
@@ -87,6 +193,9 @@
     .error{
         flex-wrap: wrap;
         
+    }
+    .validationRange{
+        right: 0;
     }
 }
 
