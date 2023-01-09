@@ -85,3 +85,13 @@
     width: 100%;
     font-size: 1.2rem;
 }
+
+@media screen and (max-width: 700px) {
+    .selectContainer{
+        top: -50px;
+    }
+
+    .selectContainer button{
+        font-size: 15px;
+    }
+}

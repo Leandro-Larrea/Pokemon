@@ -18,7 +18,7 @@ export function Filter(props){
         if(props.d) props.setD(0)
         dispatch(cleanUp("pokeList"))
         dispatch(filterTypes(e.target.value))
-        history.location.pathname !== "/" && history.push("/")
+        history.location.pathname !== "/" && history.push("/poke/home")
     }
     
     if(types.length){
