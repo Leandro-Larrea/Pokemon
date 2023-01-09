@@ -83,8 +83,28 @@
     border: none;
     padding: 3px;
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
+
+.close{
+    box-sizing: border-box;
+    background-color: rgb(26, 25, 25);
+    padding: 3px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    font-size: 1rem; 
+}
+.close button{
+width: 20px;
+cursor: pointer;
+}
+
+@media screen and (min-width: 1400px) {
+    .option{
+        font-size: 1.2rem;
+    }
+    }
 
 @media screen and (max-width: 700px) {
     .selectContainer{

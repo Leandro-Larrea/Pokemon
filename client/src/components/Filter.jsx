@@ -24,7 +24,11 @@ export function Filter(props){
     if(types.length){
         return (<div className={props.c === 0? style.hoverOff: props.d? style.hoverD:style.hover}>
                     <div className={style.container}>
-                        <div className={style.selectContainer}>   
+                        <div className={style.selectContainer}>
+                            {props.d == 1 &&
+                            <div className={style.close}>
+                                <button onClick={()=> props.setD(0)}>x</button>
+                            </div>} 
                             <button className={style.option}  onClick={filtrar} value="todos">Todos</button>
                                     {
                                     types?.map((e,i)=> <button key={i} onClick={filtrar} value ={e.name}className={style.option}>{e.name}</button>)

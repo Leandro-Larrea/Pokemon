@@ -131,7 +131,6 @@ label{
     display: flex;
     width: 120px;
     justify-content: space-between;
-
 }
 
 .error{
@@ -178,6 +177,10 @@ label{
     }
 .submit:hover{
     transform: scale(1.1);
+}
+.validationRange{
+    top: -3px;
+    right: 20%;
 }
 
 @media screen and (max-width: 400px) {

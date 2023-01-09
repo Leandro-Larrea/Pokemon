@@ -1,19 +1,18 @@
 .main{
-  height: 40px;  
+  height: 40px;
+
 }
 .navHover{
     padding-bottom: 3px;
-    background-size: 500%;
     display: flex;
     width: 100%;
     height: 50px;
     position: relative;
     align-items: center;
-    justify-content: flex-start;
     background: rgb(23, 24, 24);
     padding: 0 2vw;
     position: fixed;
-    flex-direction: row-reverse;
+    justify-content: space-between;
     z-index: 50;
 }
 
@@ -56,7 +55,6 @@
 .buttons{
     display: flex;
     font-size: 16px;
-    width: 100%;
     align-items: center;
     gap: 40px;
     justify-content: end;
@@ -300,6 +298,7 @@
         display: block;
     }
     .buttons{
+        width: 100%;
         gap: 0;
         justify-content: space-between;
     }

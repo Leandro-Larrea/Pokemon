@@ -57,6 +57,7 @@ useEffect(()=>{
 
 useEffect(()=>{
     windowWith <= 700 && c === 1 && setC(0)
+    windowWith <= 700 && d === 1 && setD(0)
 },[windowWith])
 
 const getWidth = ()=>{
@@ -66,13 +67,13 @@ const getWidth = ()=>{
     return(
         <main className={style.main}>
             <div className={style.navHover}>
+                <img className={ style.logo} src={pokeball}/>
+                    <Search/>
                 <div className={style.buttons}>
                     <NavLink className={style.link} to="/poke/home">Home</NavLink>
                     <NavLink className={style.link} to="/poke/post">Post</NavLink>
                     <a onClick={f} className={style.filters}>| | |</a>
                 </div>
-                <img className={ style.logo} src={pokeball}/>
-                <Search/>
                 <div className={ c === 1? style.asideResponsive: style.asideResponsiveOff }>
                     <div className={style.center}>
                          <NavLink onClick={()=> setC(0)} style={{textDecoration:"none" ,color:"white"}} to="/poke/home">
