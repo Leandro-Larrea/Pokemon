@@ -2,20 +2,21 @@
     width: 100%;
     gap: 10px;
     position: absolute;
-    top: 60px;
-    transform: translateX(200px);
+    top: 40px;
+    transform: translateX(223px);
     z-index: 0;
     padding: 0px 0px 6px 0px;
     /* border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px; */
-
     animation: moveBackground 1s infinite linear alternate ;
     background-size: 500%;
     transition: .3s;
-    }
+    padding-top: 16px;
+    background-color: rgb(45, 106, 219);
+}
 
-    .hoverD{
-        width: 100%;
+.hoverD{
+    width: 100%;
         gap: 10px;
         position: absolute;
         top: 60px;
@@ -27,19 +28,22 @@
         animation: moveBackground 1s infinite linear alternate ;
         background-size: 500%;
         transition: .3s;
+      
         }
        
 .hoverOff{
     width: 100%;
     gap: 10px;
     position: absolute;
-    top: 60px;
+    top: 40px;
     z-index: 10;
     padding: 0px 0px 6px 0px;
     animation: moveBackground 1s infinite linear alternate ;
     background-size: 500%;
     box-sizing: border-box;
     transition: 0.3s;
+    padding-top: 16px;
+    background-color: rgb(45, 106, 219);
 }
 
 .option:hover{
@@ -53,8 +57,7 @@
 } 
 
 .container{
-    gap: 10px;
-    background-color: black;
+    
     /* border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px; */
     margin: 0;
@@ -76,8 +79,9 @@
     color:white;
     background-color: transparent;
     cursor: pointer;
-    background-color: rgba(15, 15,15,1);
+    background-color: rgb(26, 25, 25);
     border: none;
     padding: 3px;
     width: 100%;
+    font-size: 1.2rem;
 }

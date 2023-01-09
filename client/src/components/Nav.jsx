@@ -41,6 +41,28 @@ const enableFilters = ()=>{
     setD(1)
 }
 
+const windowSize =()=>{
+    console.log("asd")
+}
+
+const [windowWith, setWindowWidth] = useState();
+
+useEffect(()=>{
+    function handleResize(){
+        setWindowWidth(getWidth)
+    }
+    window.addEventListener("resize", handleResize)
+    return()=>{window.removeEventListener("resize",windowSize)}
+},[])
+
+useEffect(()=>{
+    windowWith <= 700 && c === 1 && setC(0)
+},[windowWith])
+
+const getWidth = ()=>{
+    return window.innerWidth
+}
+
     return(
         <main className={style.main}>
             <div className={style.navHover}>
@@ -53,10 +75,10 @@ const enableFilters = ()=>{
                 <Search/>
                 <div className={ c === 1? style.asideResponsive: style.asideResponsiveOff }>
                     <div className={style.center}>
-                         <NavLink onClick={()=> setC(0)} style={{textDecoration:"none" ,color:"white"}} to="/">
+                         <NavLink onClick={()=> setC(0)} style={{textDecoration:"none" ,color:"white"}} to="/poke/home">
                             Home
                         </NavLink>
-                        <NavLink onClick={()=> setC(0)} style={{textDecoration:"none" ,color:"white"}} to="/post">
+                        <NavLink onClick={()=> setC(0)} style={{textDecoration:"none" ,color:"white"}} to="/poke/post">
                             Post
                         </NavLink> 
                         <button className={style.sort} onClick={sort} value="AZ">Sort by A-Z</button>

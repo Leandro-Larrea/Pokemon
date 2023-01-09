@@ -71,6 +71,7 @@
 .itemCheck input{
     height: 20px;
     width: 20px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 400px) {

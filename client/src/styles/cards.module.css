@@ -30,7 +30,6 @@
     flex-direction: column;
     cursor: pointer;
     position: relative;
-    
 }
 
 .pikachuSad{
@@ -134,11 +133,12 @@ left: 0;
     background-color: transparent;
     color: white;
     cursor: pointer;
-    height: 30px;
+    font-size: 1.2rem;
+    padding: 10px;
     border: none;
 }
 .sort:hover{
-    background-color: rgba(0, 130, 170, 1);
+    background-color: rgb(45, 106, 219);
 }
 
 @media screen and (max-width:700px){
