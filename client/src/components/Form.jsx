@@ -7,7 +7,6 @@ import style from "../styles/form.module.css"
 import wrong from "../images/redCross.png"
 import ok from "../images/ok-icon.png"
 
-
 export const Form = ()=>{
 
 const history = useHistory();
@@ -70,9 +69,13 @@ const location = useLocation();
 
     const submit = async (e)=>{
         e.preventDefault()
-        if(Object.values(error).filter(e => e!== null).length) return alert("fill each field")
+        if(Object.values(error).filter(e => e === ok ).length === 10){ 
         await dispatch(pokePost(info))
-        history.push("/") 
+        alert("the pokemon has been created")
+        history.push("/poke/home") }
+        else{
+            return alert("fill each field")
+        }
     }
 
     function validation (){
@@ -82,7 +85,6 @@ const location = useLocation();
         if(interacting.types) info.type.length? box.types = ok: box.types = wrong
         Object.keys(info).filter(e=> e !== "name" && e !== "image" && e !== "type").forEach(e=> {if(interacting[e]) info[e] > 0? box[e]=ok: box[e]=wrong})
         setError({...box})
-        console.log(error)
     }
 
     return(

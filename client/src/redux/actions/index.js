@@ -17,7 +17,6 @@ export const NOT_FOUND = "NOT_FOUND";
 //  export const getAll = () => async(dispatch) => {
 //   return await axios.get("https://pokemon-production.up.railway.app/pokemons")
 //   .then(asd =>{ 
-//     console.log(asd)
 //      dispatch({type: GET_ALL, payload: asd.data})
 //   })
 // } 
@@ -115,10 +114,7 @@ export const moveDetail = (move) => {
 
 export const pokePost = (pokemon) => async dispatch =>{
 await axios.post(`https://pokemon-production.up.railway.app/pokemons`,pokemon)
-.then(a=> { console.log(a.data)
-
-})
-.catch(error => console.log(error))}
+}
 
 
 

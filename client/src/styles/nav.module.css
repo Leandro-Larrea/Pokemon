@@ -31,26 +31,13 @@
 
 .logo{
    background-color: transparent;
-    width: 60px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     margin-left: 10px;
     transition: 0.4s;
     animation: rotateJ 4s infinite linear alternate;
     z-index: 10;
 }
-
-  /* @keyframes rotateJ{
-    0% {transform: rotate(180deg);} 
-    25%{transform: scale(10);}
-    50% {transform: translate(1000%,1000%)}
-    75%{transform: translate(000%,1000%)}
-    75%{transform: scale(20);}
-    100%{transform: scale(1);}
-}    */
-
-/* .logo:hover{
-    transform:rotate(180deg);
-} */
 
 .buttons{
     display: flex;

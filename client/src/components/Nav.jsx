@@ -42,7 +42,6 @@ const enableFilters = ()=>{
 }
 
 const windowSize =()=>{
-    console.log("asd")
 }
 
 const [windowWith, setWindowWidth] = useState();

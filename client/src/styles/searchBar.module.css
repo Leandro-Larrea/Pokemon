@@ -59,7 +59,6 @@
 .button{
     cursor: pointer;
     font-size: 19px;
-    font-family: sans-serif;
     padding: 10px;
     display: grid;
     font-weight: 700;

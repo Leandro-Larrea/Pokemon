@@ -64,7 +64,6 @@ export function Data(props){
                 </section>
                 <div className={datos.types.map(e=> e.name).includes("watter")?style.imageContainerWater:style.imageContainer}>  
                    {<img className={style.image} src={datos.image} alt="asdasd"/>}
-                   {/* {skill && console.log(skill) && <Moves move={skill}/>} */}
                 </div>  
             </div>                  
         </main>

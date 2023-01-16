@@ -18,7 +18,6 @@ import {location } from "react-router-dom"
 export default function App(){
 
  const location = useLocation()
-console.log(location)
     return(
         <div className={location.pathname === "/"?style.app: style.scroll}   >
         <React.Fragment>

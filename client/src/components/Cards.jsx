@@ -36,7 +36,6 @@ export function Cards(props){
     }
     
     const ok = ()=>{
-        console.log("ok")
         dispatch(cleanUp("pokeList"))
        dispatch(getAll())
     }
