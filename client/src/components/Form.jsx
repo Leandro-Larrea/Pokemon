@@ -21,7 +21,7 @@ const location = useLocation();
 
     const [info, setInfo] = useState({
         name:"",
-        image:"", 
+        img:"", 
         hp:0,
         attack:0,
         height:0,
@@ -70,6 +70,7 @@ const location = useLocation();
     const submit = async (e)=>{
         e.preventDefault()
         if(Object.values(error).filter(e => e === ok ).length === 10){ 
+            console.log(info)
         await dispatch(pokePost(info))
         alert("the pokemon has been created")
         history.push("/poke/home") }
@@ -83,7 +84,7 @@ const location = useLocation();
         if(interacting.name) !/(\w*)\b([A-Z][a-z]\w*)\b(\w*)/.test(info.name) || info.name.length > 40? box.name = wrong:
          box.name =  ok;
         if(interacting.types) info.type.length? box.types = ok: box.types = wrong
-        Object.keys(info).filter(e=> e !== "name" && e !== "image" && e !== "type").forEach(e=> {if(interacting[e]) info[e] > 0? box[e]=ok: box[e]=wrong})
+        Object.keys(info).filter(e=> e !== "name" && e !== "img" && e !== "type").forEach(e=> {if(interacting[e]) info[e] > 0? box[e]=ok: box[e]=wrong})
         setError({...box})
     }
 
@@ -98,13 +99,13 @@ const location = useLocation();
                         <input onChange={handleChange} className={style.input} name="name" type="text" value={info.name}></input>
                     </div>
                     <div className={style.itemText}>
-                        <label style={{gridColumn: "span 2"}} htmlFor="image">Image</label>
-                        <input onChange={handleChange} className={style.input} name="image" type="text" value={info.image}></input>
+                        <label style={{gridColumn: "span 2"}} htmlFor="img">image</label>
+                        <input onChange={handleChange} className={style.input} name="img" type="text" value={info.img}></input>
                     </div>
                 </div>
                 <div className={style.rangeContainer}>
                     <h2>Select Stats</h2>
-                    {Object.keys(info).filter(e=> e !== "name" && e !== "image" && e !=="type").map((e,i) =>(
+                    {Object.keys(info).filter(e=> e !== "name" && e !== "img" && e !=="type").map((e,i) =>(
                         <div key={i} className={style.itemRange}>
                             <label htmlFor={e}>{e.slice(0,1).toUpperCase() + e.slice(1)}</label>
                             <img className={style.validationRange} src={error[e]}></img>  
