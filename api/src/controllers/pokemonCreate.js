@@ -21,6 +21,7 @@ const createCokemon = async(cokeObj)=>{
               } 
            }
    })
+   console.log("esto es creado", a)
 return a
     } catch (error) {
         throw ("somenthing went wrong when creating the cokemon")

@@ -70,7 +70,6 @@ const location = useLocation();
     const submit = async (e)=>{
         e.preventDefault()
         if(Object.values(error).filter(e => e === ok ).length === 10){ 
-            console.log(info)
         await dispatch(pokePost(info))
         alert("the pokemon has been created")
         history.push("/poke/home") }

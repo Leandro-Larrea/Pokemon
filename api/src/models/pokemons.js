@@ -80,10 +80,10 @@ module.exports = (sequelize) =>{
                 min: 1,
                 max: 200
             },
+        },
         img:{
             type: DataTypes.STRING,
-            allowNUll: true
+            allowNull: true
           }
-        }
     })
 }
